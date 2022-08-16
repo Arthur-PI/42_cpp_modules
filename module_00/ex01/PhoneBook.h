@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 12:07:05 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/15 12:15:36 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/08/15 12:41:16 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,8 @@ class PhoneBook {
 
 	public:
 		PhoneBook();
-		PhoneBook(const PhoneBook &pb);
 		~PhoneBook();
-		PhoneBook & operator;
-
-
+		void	add_contact(Contact new_contact);
 };
 
 #endif

@@ -1,8 +1,13 @@
 CC		= c++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
+IFLAGS	= -I./
 RM		= rm -rf
 
-SRCS	= megaphone.cpp
+SRCS	= PhoneBook.cpp \
+		  Contact.cpp \
+
+HEADERS	= PhoneBook.h \
+		  Contact.h
 
 OBJS	= $(SRCS:.cpp=.o)
 
@@ -10,8 +15,8 @@ NAME	= megaphone
 
 all:	$(NAME)
 
-%.o:	%.cpp
-	$(CC) $(CFLAGS) -c $<
+%.o:	%.cpp $(HEADERS)
+	$(CC) $(CFLAGS) $(IFLAGS) -c $<
 
 $(NAME):	$(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
