@@ -6,23 +6,30 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 12:07:05 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/15 12:41:16 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/08/16 11:50:55 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONE_BOOK_H
 # define PHONE_BOOK_H
 
+#include <iostream>
+#include "Contact.h"
+
 # define MAX_CONTACT 8
 
-class PhoneBook {
+class PhoneBook
+{
 	private:
-		Contact	contacts[MAX_CONTACT];
+		int		_nb_contact;
+		Contact	_contacts[MAX_CONTACT];
 
 	public:
 		PhoneBook();
 		~PhoneBook();
+		void	add_contact();
 		void	add_contact(Contact new_contact);
+		void	search(std::string name);
 };
 
 #endif

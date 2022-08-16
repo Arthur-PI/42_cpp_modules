@@ -1,7 +1,8 @@
 CC		= c++
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
+CFLAGS	= -std=c++98 -Wall -Wextra -Werror
 IFLAGS	= -I./
 RM		= rm -rf
+OBJ_DIR	= bin
 
 SRCS	= PhoneBook.cpp \
 		  Contact.cpp \
@@ -9,14 +10,17 @@ SRCS	= PhoneBook.cpp \
 HEADERS	= PhoneBook.h \
 		  Contact.h
 
-OBJS	= $(SRCS:.cpp=.o)
+OBJS	= $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 
 NAME	= megaphone
 
 all:	$(NAME)
 
-%.o:	%.cpp $(HEADERS)
-	$(CC) $(CFLAGS) $(IFLAGS) -c $<
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
+
+$(OBJ_DIR)/%.o:	%.cpp $(HEADERS) $(OBJ_DIR)
+	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 $(NAME):	$(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
