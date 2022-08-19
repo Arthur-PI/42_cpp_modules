@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.h                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/16 11:10:08 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/19 12:15:54 by apigeon          ###   ########.fr       */
+/*   Created: 2022/08/19 12:17:08 by apigeon           #+#    #+#             */
+/*   Updated: 2022/08/19 12:35:10 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_H
-# define CONTACT_H
-
 #include <iostream>
+#include "PhoneBook.h"
 
-class Contact
+int	main(void)
 {
-	private:
-		std::string	_first_name;
-		std::string	_last_name;
-		std::string	_nickname;
-		std::string	_secret;
-		std::string _phone_number;
+	std::string	line;
 
-	public:
-		Contact();
-		Contact(std::string fn, std::string ln, std::string nn, std::string secret, std::string pn);
-		~Contact();
-		void	display_infos(void);
-};
-
-#endif
+	std::cin >> line;
+	if (line == "ADD") {
+		// TODO
+	}
+	else if (line == "SEARCH") {
+		// TODO
+	}
+	else if (line == "EXIT") {
+		// TODO
+	}
+	else
+		std::cout << "Invalid command, here is the available ones: ADD/SEARCH/EXIT" << std::endl;
+}

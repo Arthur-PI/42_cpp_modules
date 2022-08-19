@@ -1,32 +1,31 @@
-CC		= c++
-CFLAGS	= -std=c++98 -Wall -Wextra -Werror
-IFLAGS	= -I./
-RM		= rm -rf
-OBJ_DIR	= bin
+CC			= c++
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
+CPPFLAGS	+= -g
+CPPFLAGS	+= -MMD -MP
+IFLAGS		= 
+RM			= rm -rf
+OBJ_DIR		= bin
 
-SRCS	= PhoneBook.cpp \
+SRCS	= main.cpp \
+		  PhoneBook.cpp \
 		  Contact.cpp \
 
-HEADERS	= PhoneBook.h \
-		  Contact.h
-
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
+DEPS	= $(OBJS:.o=.d)
 
-NAME	= megaphone
+NAME	= phonebook
 
 all:	$(NAME)
 
-$(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
-
-$(OBJ_DIR)/%.o:	%.cpp $(HEADERS) $(OBJ_DIR)
-	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
+$(OBJ_DIR)/%.o:	%.cpp
+	@mkdir -p $(dir $@)
+	$(CC) $(CPPFLAGS) -c $< -o $@
 
 $(NAME):	$(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJ_DIR)
 
 fclean: clean
 	$(RM) $(NAME)
@@ -34,3 +33,5 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
+-include $(DEPS)
