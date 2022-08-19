@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 11:15:48 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/19 12:35:21 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/08/19 14:23:07 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,21 @@ void	Contact::display_infos(void)
 	std::cout << "Nickname\t: " << _nickname << std::endl;
 	std::cout << "Phone number\t: " << _phone_number << std::endl;
 	std::cout << "Darkest secret\t: " << _secret << std::endl;
+}
+
+std::string	Contact::getFirstName()
+{
+	return _first_name;
+}
+
+std::string	Contact::getLastName()
+{
+	return _last_name;
+}
+
+std::string	Contact::getNickname()
+{
+	return _nickname;
 }
 
 Contact::~Contact() {}

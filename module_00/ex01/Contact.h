@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 11:10:08 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/19 12:15:54 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/08/19 14:15:01 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ class Contact
 		Contact();
 		Contact(std::string fn, std::string ln, std::string nn, std::string secret, std::string pn);
 		~Contact();
-		void	display_infos(void);
+		void		display_infos(void);
+		std::string	getFirstName();
+		std::string	getLastName();
+		std::string	getNickname();
 };
 
 #endif
