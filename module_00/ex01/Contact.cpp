@@ -6,11 +6,12 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 11:15:48 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/19 14:23:07 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/08/22 14:44:33 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.h"
+#include "color.h"
 
 Contact::Contact()
 {
@@ -32,12 +33,12 @@ Contact::Contact(std::string fn, std::string ln, std::string nn, std::string pn,
 
 void	Contact::display_infos(void)
 {
-	std::cout << "\t\t" << "Contact Informations" << std::endl;
-	std::cout << "First name\t: " << _first_name << std::endl;
-	std::cout << "Last name\t: " << _last_name << std::endl;
-	std::cout << "Nickname\t: " << _nickname << std::endl;
-	std::cout << "Phone number\t: " << _phone_number << std::endl;
-	std::cout << "Darkest secret\t: " << _secret << std::endl;
+	std::cout << "Contact Informations" << std::endl;
+	std::cout << BLUE << "First name\t: " << CYAN << _first_name << std::endl;
+	std::cout << BLUE << "Last name\t: " << CYAN << _last_name << std::endl;
+	std::cout << BLUE << "Nickname\t: " << CYAN << _nickname << std::endl;
+	std::cout << BLUE << "Phone number\t: " << CYAN << _phone_number << std::endl;
+	std::cout << BLUE << "Darkest secret\t: " << CYAN << _secret << "\n\n";
 }
 
 std::string	Contact::getFirstName()

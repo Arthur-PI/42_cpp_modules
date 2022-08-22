@@ -6,12 +6,13 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 12:17:08 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/19 14:54:45 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/08/22 13:36:24 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "PhoneBook.h"
+#include "color.h"
 
 int	main(void)
 {
@@ -22,17 +23,18 @@ int	main(void)
 	over = false;
 	phonebook = PhoneBook();
 	do {
-		std::cout << "PhoneBook > ";
+		std::cout << BLUE << "PhoneBook> " << CYAN;
 		std::getline(std::cin, line);
+		std::cout << RESET;
 		if (line == "ADD")
 			phonebook.add_contact();
 		else if (line == "SEARCH")
 			phonebook.search();
 		else if (line == "EXIT") {
-			std::cout << "Sorry to see you leave ;(\n";
+			std::cout << PURPLE << "Sorry to see you leave ;(\n" << RESET;
 			over = true;
 		}
 		else
-			std::cout << "Invalid command, here is the available ones: ADD/SEARCH/EXIT\n\n";
+			std::cout << RED << "Invalid command, here is the available ones: ADD/SEARCH/EXIT\n\n" << RESET;
 	} while (!over);
 }

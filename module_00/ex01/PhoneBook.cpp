@@ -6,11 +6,12 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 11:20:36 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/19 15:59:59 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/08/22 14:49:44 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.h"
+#include "color.h"
 
 PhoneBook::PhoneBook(void)
 {
@@ -29,7 +30,7 @@ void	PhoneBook::add_contact(Contact new_contact)
 		_contacts[_nb_contact++] = new_contact;
 }
 
-bool	is_valid_name(std::string name)
+static bool	is_valid_name(std::string name)
 {
 	for (int i=0; name[i]; i++)
 		if (name[i] != '-' && name[i] != ' ' && !isalpha(name[i]))
@@ -37,7 +38,7 @@ bool	is_valid_name(std::string name)
 	return (true);
 }
 
-bool	is_valid_number(std::string number)
+static bool	is_valid_number(std::string number)
 {
 	  for (int i=0; number[i]; i++)
 		  if (!isdigit(number[i]))
@@ -45,7 +46,7 @@ bool	is_valid_number(std::string number)
 	  return (true);
 }
 
-bool	is_empty(std::string s)
+static bool	is_empty(std::string s)
 {
 	for (int i=0; s[i]; i++)
 		if (!isspace(s[i]))
@@ -53,17 +54,17 @@ bool	is_empty(std::string s)
 	return (true);
 }
 
-std::string	read_prompt(std::string prompt, bool (*validator)(std::string))
+static std::string	read_prompt(std::string prompt, bool (*validator)(std::string), std::string error_msg)
 {
 	std::string answer;
 
 	while (true) {
-		std::cout << prompt;
+		std::cout << BLUE << prompt << CYAN;
 		std::getline(std::cin, answer);
 		if (is_empty(answer))
-			std::cout << "Your input cannot be an empty string.\n";
+			std::cout << RED << "Your input cannot be an empty string.\n" << RESET;
 		else if (validator && !validator(answer))
-			std::cout << "Error msg TODO.\n";
+			std::cout << RED << error_msg << "\n" << RESET;
 		else
 			break;
 	}
@@ -78,17 +79,17 @@ void	PhoneBook::add_contact(void)
 	std::string	phone_number;
 	std::string	secret;
 
-	std::cout << "\t\t New Contact Creation\n";
-	first_name = read_prompt("First Name: ", &is_valid_name);
-	last_name = read_prompt("Last name: ", &is_valid_name);
-	nickname = read_prompt("Nickname: ", &is_valid_name);
-	phone_number = read_prompt("Phone number: ", &is_valid_number);
-	secret = read_prompt("Darkest secret: ", NULL);
+	std::cout << WHITE << "New Contact Creation\n";
+	first_name = read_prompt("First Name\t: ", &is_valid_name, "Please enter a valid name (only letters, - and space)");
+	last_name = read_prompt("Last name\t: ", &is_valid_name, "Please enter a valid name (only letters, - and space)");
+	nickname = read_prompt("Nickname\t: ", &is_valid_name, "Please enter a valid name (only letters, - and space)");
+	phone_number = read_prompt("Phone number\t: ", &is_valid_number, "Please enter a valid phone number (only digits)");
+	secret = read_prompt("Darkest secret\t: ", NULL, "An error occured with your input please try again");
 	this->add_contact(Contact(first_name, last_name, nickname, phone_number, secret));
-	std::cout << "Contact successfully added\n\n";
+	std::cout << PURPLE << "Contact successfully added\n\n" << RESET;
 }
 
-std::string	align_word(std::string word, int len)
+static std::string	align_word(std::string word, int len)
 {
 	int			i;
 	int			w_len;
@@ -107,12 +108,12 @@ std::string	align_word(std::string word, int len)
 	return aligned;
 }
 
-void	one_line_format(std::string a, std::string b, std::string c, std::string d)
+static void	one_line_format(std::string a, std::string b, std::string c, std::string d, std::string text_color)
 {
-	std::cout << "|" << align_word(a, 10);
-	std::cout << "|" << align_word(b, 10);
-	std::cout << "|" << align_word(c, 10);
-	std::cout << "|" << align_word(d, 10) << "|\n";
+	std::cout << BLUE << "|" << text_color << align_word(a, 10);
+	std::cout << BLUE << "|" << text_color << align_word(b, 10);
+	std::cout << BLUE << "|" << text_color << align_word(c, 10);
+	std::cout << BLUE << "|" << text_color << align_word(d, 10) << BLUE << "|\n";
 }
 
 void	PhoneBook::display_contacts(void)
@@ -120,20 +121,21 @@ void	PhoneBook::display_contacts(void)
 	int			id;
 	std::string	input;
 
-	std::cout << "---------------------------------------------\n";
-	one_line_format("Index", "First name", "Last name", "Nickname");
-	std::cout << "---------------------------------------------\n";
+	std::cout << BLUE << "---------------------------------------------\n" << RESET;
+	one_line_format("Index", "First name", "Last name", "Nickname", GREEN);
+	std::cout << BLUE << "---------------------------------------------\n" << RESET;
 	for (int i=0; i < _nb_contact; i++) {
-		one_line_format(std::to_string(i + 1), _contacts[i].getFirstName(), _contacts[i].getLastName(), _contacts[i].getNickname());
-		std::cout << "---------------------------------------------\n";
+		one_line_format(std::to_string(i + 1), _contacts[i].getFirstName(), _contacts[i].getLastName(), _contacts[i].getNickname(), YELLOW);
+		std::cout << BLUE << "---------------------------------------------\n" << RESET;
 	}
-	std::cout << "Please enter the id of the contact you want to see: ";
+	std::cout << PURPLE << "\nPlease enter the id of the contact you want to see: " << CYAN;
 	std::getline(std::cin, input);
+	std::cout << RESET;
 	id = 0;
 	if (input.length() == 1)
 		id = input[0] - '0';
 	if (!isdigit(input[0]) || id < 1 || id > _nb_contact)
-		std::cout << "Error: this is not a valid contact id\n";
+		std::cout << RED << "Error: this is not a valid contact id\n\n" << RESET;
 	else
 		_contacts[id - 1].display_infos();
 	
