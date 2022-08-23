@@ -8,13 +8,11 @@ RM			= rm -rf
 OBJ_DIR		= bin
 
 SRCS	= main.cpp \
-		  Zombie.cpp \
-		  zombieHorde.cpp \
 
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 DEPS	= $(OBJS:.o=.d)
 
-NAME	= zombie
+NAME	= string
 
 all:	$(NAME)
 
