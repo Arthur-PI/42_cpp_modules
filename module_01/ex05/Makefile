@@ -8,14 +8,12 @@ RM			= rm -rf
 OBJ_DIR		= bin
 
 SRCS	= main.cpp \
-		  Weapon.cpp \
-		  HumanA.cpp \
-		  HumanB.cpp \
+		  Harl.cpp \
 
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 DEPS	= $(OBJS:.o=.d)
 
-NAME	= prog
+NAME	= harl
 
 all:	$(NAME)
 

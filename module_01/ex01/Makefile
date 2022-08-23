@@ -1,6 +1,6 @@
 CC			= c++
 CPPFLAGS	= -Wall -Wextra -std=c++98
-CPPFGLAGS	+= -Werror
+CPPFLAGS	+= -Werror
 CPPFLAGS	+= -g
 CPPFLAGS	+= -MMD -MP
 IFLAGS		= 
