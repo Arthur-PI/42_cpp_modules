@@ -12,7 +12,7 @@ SRCS	= main.cpp \
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 DEPS	= $(OBJS:.o=.d)
 
-NAME	= prog
+NAME	= replace
 
 all:	$(NAME)
 

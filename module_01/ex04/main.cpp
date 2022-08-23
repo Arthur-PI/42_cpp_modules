@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 15:12:39 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/23 14:09:42 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/08/23 16:35:18 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,45 +15,55 @@
 
 static int	usage(std::string prog_name)
 {
-	std::cout << "Usage: " << prog_name << " filename string1 string2\n";
+	std::cout << "Usage: " << prog_name << " filename to_find replace_by\n";
 	return 1;
 }
 
 static void	replace(std::string &line, size_t pos, int len, std::string word)
 {
-	(void)line;
-	(void)pos;
-	(void)len;
-	(void)word;
-	// TODO
+	line = line.substr(0, pos) + word + line.substr(pos + len);
 }
 
 int	main(int ac, char **av)
 {
 	size_t			len;
+	size_t			pos;
 	std::string		line;
-	std::string		to_replace;
+	std::string		to_find;
+	std::string		replace_by;
+	std::string		filename;
 	std::ifstream	in;
+	std::ofstream	out;
 
 	if (ac != 4)
 		return usage(av[0]);
-	to_replace = av[2];
-	len = to_replace.length();
-	in.open(av[1], std::ifstream::in);
+
+	filename = av[1];
+	in.open(filename, std::ifstream::in);
 	if (!in) {
-		std::cout << "Unable to open the file\n";
+		std::cout << "Unable to open the input file\n";
 		return 2;
 	}
+
+	out.open(filename + ".replace", std::ofstream::out);
+	if (!out) {
+		in.close();
+		std::cout << "Unable to open the output file\n";
+		return 3;
+	}
+
+	to_find = av[2];
+	replace_by = av[3];
+	len = to_find.length();
 	while (getline(in, line)) {
-		while (true) {
-			size_t pos = line.find(av[2]);
-			if (pos != std::string::npos)
-				replace(line, pos, len, av[3]);
-			else
-				break;
+		pos = line.find(to_find);
+		while (pos != std::string::npos) {
+			replace(line, pos, len, replace_by);
+			pos = line.find(to_find, pos + replace_by.length());
 		}
-		std::cout << line;
+		out << line << "\n";
 	}
 	in.close();
+	out.close();
 	return 0;
 }
