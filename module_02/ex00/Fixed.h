@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 17:57:52 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/23 18:19:59 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/08/23 18:39:33 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Fixed
 
 	private:
 		int	_value;
-		static const int	fractional_bits;
+		static const int	fractional_bits = 8;
 };
 
 #endif
