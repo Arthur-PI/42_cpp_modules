@@ -6,13 +6,11 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 18:06:46 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/23 18:36:17 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/08/23 18:38:49 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.h"
-
-const int Fixed::fractional_bits = 8;
 
 Fixed::Fixed(void)
 {
