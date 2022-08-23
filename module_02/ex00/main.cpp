@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 18:15:17 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/23 18:36:05 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/08/23 18:41:00 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ int	main(void)
 	Fixed	c;
 
 	c = b;
-	a.setRawBits(5);
-	b.setRawBits(10);
 	std::cout << a.getRawBits() << std::endl;
 	std::cout << b.getRawBits() << std::endl;
 	std::cout << c.getRawBits() << std::endl;

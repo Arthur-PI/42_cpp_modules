@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 17:57:52 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/23 18:38:41 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/08/23 18:40:33 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class Fixed
 {
 	public:
 		Fixed(void);
+		Fixed(const int value);
 		Fixed(const Fixed &fixed);
 		~Fixed(void);
 		Fixed & operator=(const Fixed &fixed);
