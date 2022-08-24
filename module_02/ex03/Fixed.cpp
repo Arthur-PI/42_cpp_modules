@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 18:06:46 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/24 19:25:07 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/08/24 19:30:44 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ Fixed	Fixed::operator*(const Fixed& fixed)
 {
 	Fixed result;
 
-	// TODO need fix
 	result.setRawBits((_bits * fixed.getRawBits()) >> _fractional_bits);
 	return result;
 }
@@ -74,7 +73,6 @@ Fixed	Fixed::operator/(const Fixed& fixed)
 {
 	Fixed result;
 
-	// TODO need fix
 	result.setRawBits((_bits << _fractional_bits) / fixed.getRawBits());
 	return result;
 }
