@@ -6,13 +6,13 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 10:43:08 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/25 10:56:39 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/08/25 12:10:53 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.h"
 
-ScavTrap::ScavTrap(void)
+ScavTrap::ScavTrap(void): ClapTrap()
 {
 	std::cout << "ScavTrap default constructor called\n";
 	_name = "John Doe";
@@ -21,7 +21,7 @@ ScavTrap::ScavTrap(void)
 	_attack = 20;
 }
 
-ScavTrap::ScavTrap(std::string name)
+ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
 	std::cout << "ScavTrap constructor called\n";
 	_name = name;
@@ -30,12 +30,34 @@ ScavTrap::ScavTrap(std::string name)
 	_attack = 20;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& scavtrap)
+ScavTrap::ScavTrap(const ScavTrap& scavtrap): ClapTrap(scavtrap)
 {
-	std::cout >> "ScavTrap clone contructor called\n";
+	std::cout << "ScavTrap clone contructor called\n";
 }
 
 ScavTrap&	ScavTrap::operator=(const ScavTrap& scavtrap)
 {
+	ClapTrap::operator=(scavtrap);
 	std::cout << "ScavTrap copy assignment operator called\n";
+	return *this;
+}
+
+ScavTrap::~ScavTrap(void)
+{
+	std::cout << "ScavTrap destructor called\n";
+}
+
+void	ScavTrap::guardGate(void)
+{
+	std::cout << "ScavTrap " << _name << " is now in gate keeper mode\n";
+}
+
+void	ScavTrap::attack(const std::string& target)
+{
+	if (_energy == 0)
+		std::cout << "ScavTrap " << _name << " cannot attack because it does not have enough energy !\n";
+	else {
+		_energy--;
+		std::cout << "ScavTrap " << _name << " attack " << target << ", causing " << _attack << " points of damage\n";
+	}
 }

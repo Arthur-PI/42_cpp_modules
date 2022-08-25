@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 09:41:40 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/25 10:42:32 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/08/25 11:06:31 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ class	ClapTrap
 		std::string	getName(void) const;
 
 	protected:
-		int			_health;
-		int			_energy;
-		int			_attack;
-		std::string	_name;
+		unsigned int	_health;
+		unsigned int	_energy;
+		unsigned int	_attack;
+		std::string		_name;
 };
 
 #endif
