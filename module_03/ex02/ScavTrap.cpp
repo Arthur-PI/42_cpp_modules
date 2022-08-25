@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 10:43:08 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/25 12:23:34 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/08/25 12:10:53 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 ScavTrap::ScavTrap(void): ClapTrap()
 {
 	std::cout << "ScavTrap default constructor called\n";
+	_name = "John Doe";
 	_health = 100;
 	_energy = 50;
 	_attack = 20;
@@ -23,6 +24,7 @@ ScavTrap::ScavTrap(void): ClapTrap()
 ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
 	std::cout << "ScavTrap constructor called\n";
+	_name = name;
 	_health = 100;
 	_energy = 50;
 	_attack = 20;
