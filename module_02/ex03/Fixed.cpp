@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 18:06:46 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/24 19:30:44 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/08/25 09:24:43 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ bool	Fixed::operator!=(const Fixed& fixed) const
 
 Fixed&	Fixed::operator++(void)
 {
-	_bits += 1 << _fractional_bits;
+	_bits++;
 	return *this;
 }
 
@@ -117,13 +117,13 @@ Fixed	Fixed::operator++(int)
 {
 	Fixed	next(*this);
 
-	_bits += 1 << _fractional_bits;
+	_bits++;
 	return next;
 }
 
 Fixed&	Fixed::operator--(void)
 {
-	_bits -= 1 << _fractional_bits;
+	_bits--;
 	return *this;
 }
 
@@ -131,7 +131,7 @@ Fixed	Fixed::operator--(int)
 {
 	Fixed	next(*this);
 
-	_bits -= 1 << _fractional_bits;
+	_bits--;
 	return next;
 }
 

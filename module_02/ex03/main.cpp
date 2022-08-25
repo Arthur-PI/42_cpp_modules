@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 18:15:17 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/24 19:29:55 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/08/25 09:16:30 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,15 @@
 
 int	main(void)
 {
-	// TODO tests
-	std::cout << bsp(Point(2, 0), Point(3, 2), Point(1, 2), Point(2, 2.1)) << std::endl;
+	Point	a(2, 0);
+	Point	b(3, 2);
+	Point	c(1, 2);
+
+	Point	d(2, 1);
+	Point	e(2, 2.1);
+	std::cout << "The Triangle is a(" << a.getX() << "," << a.getY() << "), b(" << b.getX() << "," << b.getY() << "), c(";
+	std::cout << c.getX() << "," << c.getY() << "):\n";
+	std::cout << "The point (" << d.getX() << "," << d.getY() << ") is in triangle ? " << bsp(a, b, c, d) << std::endl;
+	std::cout << "The point (" << e.getX() << "," << e.getY() << ") is in triangle ? " << bsp(a, b, c, e) << std::endl;
 	return 0;
 }

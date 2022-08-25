@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 18:15:17 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/24 16:03:30 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/08/25 09:18:53 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	given_main(void)
 
 	std::cout << b << std::endl;
 
-	//std::cout << Fixed::max(a, b) << std::endl;
+	std::cout << Fixed::max(a, b) << std::endl;
 }
 
 void	my_main(void)
@@ -71,6 +71,6 @@ void	my_main(void)
 
 int	main(void)
 {
-	my_main();
+	given_main();
 	return 0;
 }
