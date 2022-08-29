@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 09:49:08 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/25 11:02:00 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/08/29 15:38:57 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,17 +51,17 @@ ClapTrap::~ClapTrap(void)
 	std::cout << "ClapTrap destructor called\n";
 }
 
-int	ClapTrap::getHealth(void) const
+unsigned int	ClapTrap::getHealth(void) const
 {
 	return _health;
 }
 
-int	ClapTrap::getEnergy(void) const
+unsigned int	ClapTrap::getEnergy(void) const
 {
 	return _energy;
 }
 
-int	ClapTrap::getAttack(void) const
+unsigned int	ClapTrap::getAttack(void) const
 {
 	return _attack;
 }
