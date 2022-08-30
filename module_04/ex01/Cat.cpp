@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 09:58:37 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/30 12:27:40 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/08/30 13:54:28 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Cat::Cat(void)
 	_brain = new Brain();
 }
 
-Cat::Cat(const Cat& cat)
+Cat::Cat(const Cat& cat): Animal(cat)
 {
 	std::cout << "Cat clone constructor called\n";
 	*this = cat;
@@ -35,7 +35,7 @@ Cat&	Cat::operator=(const Cat& cat)
 {
 	std::cout << "Cat copy assignment operator called\n";
 	_type = cat.getType();
-	_brain = cat.getBrain();
+	_brain = new Brain(*(cat.getBrain()));
 	return *this;
 }
 

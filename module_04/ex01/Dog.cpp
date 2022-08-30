@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 09:55:56 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/30 12:34:08 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/08/30 13:53:16 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Dog::Dog(void)
 	_brain = new Brain();
 }
 
-Dog::Dog(const Dog& dog)
+Dog::Dog(const Dog& dog): Animal(dog)
 {
 	std::cout << "Dog clone constructor called\n";
 	*this = dog;
@@ -29,7 +29,7 @@ Dog&	Dog::operator=(const Dog& dog)
 {
 	std::cout << "Dog copy assignment operator called\n";
 	_type = dog.getType();
-	_brain = dog.getBrain();
+	_brain = new Brain(*(dog.getBrain()));
 	return *this;
 }
 

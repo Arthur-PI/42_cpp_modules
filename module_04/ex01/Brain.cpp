@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:10:02 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/30 12:19:57 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/08/30 13:52:12 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,9 @@ Brain::~Brain(void)
 std::string	Brain::getIdea(int i) const
 {
 	return _ideas[i];
+}
+
+void	Brain::setIdea(int i, std::string idea)
+{
+	_ideas[i] = idea;
 }

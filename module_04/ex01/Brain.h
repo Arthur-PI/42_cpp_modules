@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 11:05:57 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/30 12:20:27 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/08/30 13:50:26 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class	Brain
 		~Brain(void);
 		Brain&	operator=(const Brain& brain);
 
+		void		setIdea(int i, std::string idea);
 		std::string	getIdea(int i) const;
 
 	private:
