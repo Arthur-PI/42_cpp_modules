@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.h                                           :+:      :+:    :+:   */
+/*   Brain.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/30 09:43:12 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/30 16:48:57 by apigeon          ###   ########.fr       */
+/*   Created: 2022/08/30 11:05:57 by apigeon           #+#    #+#             */
+/*   Updated: 2022/08/30 13:50:26 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#ifndef BRAIN_H
+# define BRAIN_H
 
 # include <iostream>
 
-class	Animal
+# define MAX_IDEAS 100
+
+class	Brain
 {
 	public:
-		Animal(void);
-		Animal(const Animal& animal);
-		virtual ~Animal(void);
-		Animal&	operator=(const Animal& animal);
+		Brain(void);
+		Brain(const Brain& brain);
+		~Brain(void);
+		Brain&	operator=(const Brain& brain);
 
-		virtual void	makeSound(void) const;
-		std::string		getType(void) const;
+		void		setIdea(int i, std::string idea);
+		std::string	getIdea(int i) const;
 
-	protected:
-		std::string	_type;
+	private:
+		std::string	_ideas[100];
 };
 
 #endif

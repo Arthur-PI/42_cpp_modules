@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.h                                           :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/30 09:43:12 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/30 16:48:57 by apigeon          ###   ########.fr       */
+/*   Created: 2022/08/30 09:46:46 by apigeon           #+#    #+#             */
+/*   Updated: 2022/08/30 16:49:11 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#include "Animal.h"
 
-# include <iostream>
-
-class	Animal
+std::string	Animal::getType(void) const
 {
-	public:
-		Animal(void);
-		Animal(const Animal& animal);
-		virtual ~Animal(void);
-		Animal&	operator=(const Animal& animal);
+	return _type;
+}
 
-		virtual void	makeSound(void) const;
-		std::string		getType(void) const;
-
-	protected:
-		std::string	_type;
-};
-
-#endif
+void	Animal::makeSound(void) const
+{
+	std::cout << "animal sound" << std::endl;
+}

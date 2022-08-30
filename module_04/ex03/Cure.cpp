@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.h                                           :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/30 09:43:12 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/30 16:48:57 by apigeon          ###   ########.fr       */
+/*   Created: 2022/08/30 19:56:13 by apigeon           #+#    #+#             */
+/*   Updated: 2022/08/30 19:57:37 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#include "Cure.h"
 
-# include <iostream>
+Cure::Cure(void): AMateria("cure") {}
 
-class	Animal
+Cure::Cure(const Cure& cure): AMateria(cure) {}
+
+Cure::~Cure(void) {}
+
+Cure&	Cure::operator=(const Cure& cure)
 {
-	public:
-		Animal(void);
-		Animal(const Animal& animal);
-		virtual ~Animal(void);
-		Animal&	operator=(const Animal& animal);
+	_type = cure.getType();
+	return *this;
+}
 
-		virtual void	makeSound(void) const;
-		std::string		getType(void) const;
+void	Cure::use(ICharacter& target)
+{
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+}
 
-	protected:
-		std::string	_type;
-};
-
-#endif
+AMateria*	Cure::clone(void) const
+{
+	return new Cure(*this);
+}

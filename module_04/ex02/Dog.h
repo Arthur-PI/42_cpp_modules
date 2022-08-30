@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.h                                           :+:      :+:    :+:   */
+/*   Dog.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/30 09:43:12 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/30 16:48:57 by apigeon          ###   ########.fr       */
+/*   Created: 2022/08/30 09:53:45 by apigeon           #+#    #+#             */
+/*   Updated: 2022/08/30 12:23:08 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#ifndef DOG_H
+# define DOG_H
 
 # include <iostream>
+# include "Animal.h"
+# include "Brain.h"
 
-class	Animal
+class	Dog: public Animal
 {
 	public:
-		Animal(void);
-		Animal(const Animal& animal);
-		virtual ~Animal(void);
-		Animal&	operator=(const Animal& animal);
+		Dog(void);
+		Dog(const Dog& dog);
+		~Dog(void);
+		Dog&	operator=(const Dog& dog);
 
-		virtual void	makeSound(void) const;
-		std::string		getType(void) const;
+		void	makeSound(void) const;
+		Brain*	getBrain(void) const;
 
-	protected:
-		std::string	_type;
+	private:
+		Brain*	_brain;
 };
 
 #endif

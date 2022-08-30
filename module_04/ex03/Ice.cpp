@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.h                                           :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/30 09:43:12 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/30 16:48:57 by apigeon          ###   ########.fr       */
+/*   Created: 2022/08/30 18:32:36 by apigeon           #+#    #+#             */
+/*   Updated: 2022/08/30 19:53:59 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#include "Ice.h"
 
-# include <iostream>
+Ice::Ice(void): AMateria("ice") {}
 
-class	Animal
+Ice::Ice(const Ice& ice): AMateria(ice) {}
+
+Ice::~Ice(void) {}
+
+Ice&	Ice::operator=(const Ice& ice)
 {
-	public:
-		Animal(void);
-		Animal(const Animal& animal);
-		virtual ~Animal(void);
-		Animal&	operator=(const Animal& animal);
+	_type = ice.getType();
+	return *this;
+}
 
-		virtual void	makeSound(void) const;
-		std::string		getType(void) const;
+void	Ice::use(ICharacter& target)
+{
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+}
 
-	protected:
-		std::string	_type;
-};
-
-#endif
+AMateria*	Ice::clone(void) const
+{
+	return new Ice(*this);
+}

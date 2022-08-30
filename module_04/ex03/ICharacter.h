@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.h                                           :+:      :+:    :+:   */
+/*   ICharacter.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/30 09:43:12 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/30 16:48:57 by apigeon          ###   ########.fr       */
+/*   Created: 2022/08/30 18:39:09 by apigeon           #+#    #+#             */
+/*   Updated: 2022/08/30 19:45:43 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#ifndef ICHARACTER_H
+# define ICHARACTER_H
 
-# include <iostream>
+# include <string>
+# include "AMateria.h"
 
-class	Animal
+class AMateria;
+
+class	ICharacter
 {
 	public:
-		Animal(void);
-		Animal(const Animal& animal);
-		virtual ~Animal(void);
-		Animal&	operator=(const Animal& animal);
-
-		virtual void	makeSound(void) const;
-		std::string		getType(void) const;
-
-	protected:
-		std::string	_type;
+		virtual ~ICharacter() {}
+		virtual void				equip(AMateria* m) = 0;
+		virtual void				unequip(int idx) = 0;
+		virtual void 				use(int idx, ICharacter& target) = 0;
+		virtual const std::string&	getName() const = 0;
 };
 
 #endif
