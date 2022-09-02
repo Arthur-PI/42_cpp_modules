@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 19:58:36 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/30 20:27:36 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/09/01 10:05:51 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,13 @@ class	Character: public ICharacter
 		void				unequip(int idx);
 		void 				use(int idx, ICharacter& target);
 		const std::string&	getName() const;
-
+		AMateria*			getItem(int idx) const;
 
 	private:
+		static const int	NB_ITEMS = 4;
+
 		std::string	_name;
-		AMateria	*inventory[4];
+		AMateria	*_inventory[NB_ITEMS];
 };
 
 #endif

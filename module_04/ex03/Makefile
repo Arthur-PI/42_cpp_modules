@@ -11,8 +11,8 @@ SRCS	= main.cpp \
 		  AMateria.cpp \
 		  Ice.cpp \
 		  Cure.cpp \
-		  ICharacter.cpp \
 		  Character.cpp \
+		  MateriaSource.cpp \
 
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 DEPS	= $(OBJS:.o=.d)
