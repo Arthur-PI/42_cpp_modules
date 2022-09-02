@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 20:02:41 by apigeon           #+#    #+#             */
-/*   Updated: 2022/09/02 18:11:18 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/09/02 16:57:48 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,32 @@ Character::Character(std::string name)
 
 Character::Character(const Character& character)
 {
-	*this = character;
+	int	i;
+
+	i = 0;
+	_name = character.getName();
+	while (i < NB_ITEMS) {
+		if (character.getItem(i))
+			_inventory[i] = character.getItem(i)->clone();
+		else
+			_inventory[i] = NULL;
+		i++;
+	}
 }
 
 Character&	Character::operator=(const Character& character)
 {
 	int	i;
 
-	_name = character.getName();
 	i = 0;
-	while (i < NB_ITEMS && character.getItem(i) != NULL) {
-		//if (_inventory[i] != NULL)
-		//	delete _inventory[i];
-		_inventory[i] = character.getItem(i)->clone();
-		i++;
-	}
-	while  (i < NB_ITEMS) {
-		_inventory[i] = NULL;
+	_name = character.getName();
+	while (i < NB_ITEMS) {
+		if (_inventory[i])
+			delete _inventory[i];
+		if (character.getItem(i))
+			_inventory[i] = character.getItem(i)->clone();
+		else
+			_inventory[i] = NULL;
 		i++;
 	}
 	return *this;
@@ -53,7 +62,7 @@ Character&	Character::operator=(const Character& character)
 Character::~Character(void)
 {
 	for (int i=0; i < NB_ITEMS; i++) {
-		if (_inventory[i] != NULL)
+		if (_inventory[i])
 			delete _inventory[i];
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 08:53:32 by apigeon           #+#    #+#             */
-/*   Updated: 2022/09/01 10:24:59 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/09/02 16:39:03 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,11 @@ MateriaSource::MateriaSource(const MateriaSource& materiaSource)
 
 MateriaSource::~MateriaSource(void)
 {
-	// TODO
+	for (int i=0; i < NB_MATERIAS; i++) {
+		if (_materias[i])
+			delete _materias[i];
+		_materias[i] = NULL;
+	}
 }
 
 MateriaSource&	MateriaSource::operator=(const MateriaSource& materiaSource)
@@ -39,7 +43,7 @@ void	MateriaSource::learnMateria(AMateria* materia)
 {
 	for (int i=0; i < NB_MATERIAS; i++) {
 		if (_materias[i] == NULL) {
-			_materias[i] = materia->clone();
+			_materias[i] = materia;
 			break;
 		}
 	}

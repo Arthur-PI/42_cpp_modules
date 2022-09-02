@@ -19,6 +19,8 @@ DEPS	= $(OBJS:.o=.d)
 
 NAME	= materia
 
+VALGRIND	= valgrind --leak-check=full --track-origins=yes
+
 all:	$(NAME)
 
 $(OBJ_DIR)/%.o:	%.cpp
@@ -27,6 +29,12 @@ $(OBJ_DIR)/%.o:	%.cpp
 
 $(NAME):	$(OBJS)
 	$(CC) $(CPPFLAGS) $(OBJS) -o $(NAME)
+
+run:		$(NAME)
+	./$(NAME)
+
+val:		$(NAME)
+	$(VALGRIND) ./$(NAME)
 
 clean:
 	$(RM) $(OBJ_DIR)
