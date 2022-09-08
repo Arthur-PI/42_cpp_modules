@@ -8,6 +8,8 @@ RM			= rm -rf
 OBJ_DIR		= bin
 
 SRCS	= main.cpp \
+		  Bureaucrat.cpp \
+		  Form.cpp \
 		  ShrubberyCreationForm.cpp \
 		  RobotomyRequestForm.cpp \
 		  PresidentialPardonForm.cpp \
