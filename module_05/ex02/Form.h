@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 12:13:32 by apigeon           #+#    #+#             */
-/*   Updated: 2022/09/08 15:40:04 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/09/08 19:23:34 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,18 @@ class	Form
 		Form(void);
 		Form(const Form& form);
 		Form(std::string name, int sign_grade, int exec_grade);
-		
+
 		// Destructor
-		~Form();
+		virtual ~Form();
 
 		// Operator
-		Form&	operator=(const Form& form);
+		virtual Form&	operator=(const Form& form);
 
 		// Getters
-		bool				getSigned(void) const;
-		int					getSignGrade(void) const;
-		int					getExecGrade(void) const;
-		const std::string	getName(void) const;
+		virtual bool				getSigned(void) const;
+		virtual int					getSignGrade(void) const;
+		virtual int					getExecGrade(void) const;
+		virtual const std::string	getName(void) const;
 
 		// Exceptions
 		struct GradeTooHighException: public std::runtime_error {
@@ -47,10 +47,15 @@ class	Form
 			GradeTooLowException(void): std::runtime_error("error grade too low") {}
 		};
 
-		// Member functions
-		void	beSigned(const Bureaucrat& bureaucrat);
+		struct FormNotSignedException: public std::runtime_error {
+			FormNotSignedException(void): std::runtime_error("error the form is not signed") {}
+		};
 
-	private:
+		// Member functions
+		virtual void	beSigned(const Bureaucrat& bureaucrat);
+		virtual void	execute(const Bureaucrat& executor);
+
+	protected:
 		bool				_signed;
 		const int			_sign_grade;
 		const int			_exec_grade;

@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 12:17:28 by apigeon           #+#    #+#             */
-/*   Updated: 2022/09/08 15:43:14 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/09/08 18:16:31 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,12 @@ void	Form::beSigned(const Bureaucrat& bureaucrat)
 	if (bureaucrat.getGrade() > _sign_grade)
 		throw GradeTooLowException();
 	_signed = true;
+}
+
+void	Form::execute(const Bureaucrat& executor)
+{
+	if (!_signed)
+		throw FormNotSignedException();
+	if (executor.getGrade() > _exec_grade)
+		throw GradeTooLowException();
 }
