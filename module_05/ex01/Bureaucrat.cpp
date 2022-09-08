@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 11:03:22 by apigeon           #+#    #+#             */
-/*   Updated: 2022/09/03 11:57:49 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/09/08 15:52:09 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,7 @@ Bureaucrat::Bureaucrat(void): _name("Default name")
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name)
 {
-	if (grade > LOWEST_GRADE)
-		throw GradeTooLowException();
-	else if (grade < HIGHEST_GRADE)
-		throw GradeTooHighException();
-	_grade = grade;
+	setGrade(grade);
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat): _name(bureaucrat.getName())
@@ -55,6 +51,15 @@ int	Bureaucrat::getGrade(void) const
 	return _grade;
 }
 
+void	Bureaucrat::setGrade(int grade)
+{
+	if (grade > LOWEST_GRADE)
+		throw GradeTooLowException();
+	else if (grade < HIGHEST_GRADE)
+		throw GradeTooHighException();
+	_grade = grade;
+}
+
 void	Bureaucrat::incrementGrade(void)
 {
 	if (_grade == HIGHEST_GRADE)
@@ -67,4 +72,16 @@ void	Bureaucrat::decrementGrade(void)
 	if (_grade == LOWEST_GRADE)
 		throw GradeTooLowException();
 	_grade++;
+}
+
+void	Bureaucrat::signForm(Form& form)
+{
+	try {
+		form.beSigned(*this);
+		std::cout << _name << " signed the form " << form.getName() << std::endl;
+	} catch (Form::GradeTooLowException& e) {
+		std::cout << _name << " couldn't sign the form " << form.getName() << std::endl;
+	} catch (Form::GradeTooHighException& e) {
+		std::cout << _name << " couldn't sign the form " << form.getName() << std::endl;
+	}
 }

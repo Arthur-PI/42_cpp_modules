@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 10:59:55 by apigeon           #+#    #+#             */
-/*   Updated: 2022/09/03 12:07:17 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/09/08 15:30:51 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 # define BUREAUCRAT_H
 
 # include <iostream>
+# include "Form.h"
+
+# define LOWEST_GRADE 150
+# define HIGHEST_GRADE 1
+
+class	Form;
 
 class	Bureaucrat
 {
@@ -45,13 +51,14 @@ class	Bureaucrat
 		// Member functions
 		void	incrementGrade(void);
 		void	decrementGrade(void);
+		void	signForm(Form& form);
 
 	private:
 		int					_grade;
 		const std::string	_name;
 
-		static const int	LOWEST_GRADE = 150;
-		static const int	HIGHEST_GRADE = 1;
+		void	setGrade(int grade);
+
 };
 
 std::ostream&	operator<<(std::ostream& stream, const Bureaucrat& bureaucrat);
