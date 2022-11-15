@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 16:52:37 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/23 17:50:48 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/11/15 12:53:21 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,13 @@ void	Harl::complain(std::string level)
 	switch(i) {
 		case 0:
 			debug();
+			/* FALLTHROUGH */
 		case 1:
 			info();
+			/* FALLTHROUGH */
 		case 2:
 			warning();
+			/* FALLTHROUGH */
 		case 3:
 			error();
 			break;

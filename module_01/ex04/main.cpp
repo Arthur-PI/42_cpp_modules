@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 15:12:39 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/23 16:35:18 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/11/15 12:24:34 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static int	usage(std::string prog_name)
 {
-	std::cout << "Usage: " << prog_name << " filename to_find replace_by\n";
+	std::cout << "Usage: " << prog_name << " <filename> <to_find> <replace_by>\n";
 	return 1;
 }
 
@@ -39,13 +39,13 @@ int	main(int ac, char **av)
 		return usage(av[0]);
 
 	filename = av[1];
-	in.open(filename, std::ifstream::in);
+	in.open(filename.c_str(), std::ifstream::in);
 	if (!in) {
 		std::cout << "Unable to open the input file\n";
 		return 2;
 	}
 
-	out.open(filename + ".replace", std::ofstream::out);
+	out.open((filename + ".replace").c_str(), std::ofstream::out);
 	if (!out) {
 		in.close();
 		std::cout << "Unable to open the output file\n";
