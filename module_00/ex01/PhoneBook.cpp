@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 11:20:36 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/22 14:49:44 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/11/15 14:29:25 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,14 @@ static std::string	read_prompt(std::string prompt, bool (*validator)(std::string
 	return (answer);
 }
 
+static std::string	int_to_string(int i)
+{
+	std::ostringstream ss;
+
+	ss << i;
+	return (ss.str());
+}
+
 void	PhoneBook::add_contact(void)
 {
 	std::string	first_name;
@@ -125,7 +133,7 @@ void	PhoneBook::display_contacts(void)
 	one_line_format("Index", "First name", "Last name", "Nickname", GREEN);
 	std::cout << BLUE << "---------------------------------------------\n" << RESET;
 	for (int i=0; i < _nb_contact; i++) {
-		one_line_format(std::to_string(i + 1), _contacts[i].getFirstName(), _contacts[i].getLastName(), _contacts[i].getNickname(), YELLOW);
+		one_line_format(int_to_string(i + 1), _contacts[i].getFirstName(), _contacts[i].getLastName(), _contacts[i].getNickname(), YELLOW);
 		std::cout << BLUE << "---------------------------------------------\n" << RESET;
 	}
 	std::cout << PURPLE << "\nPlease enter the id of the contact you want to see: " << CYAN;
@@ -138,12 +146,12 @@ void	PhoneBook::display_contacts(void)
 		std::cout << RED << "Error: this is not a valid contact id\n\n" << RESET;
 	else
 		_contacts[id - 1].display_infos();
-	
+
 }
 
 void	PhoneBook::search(void)
 {
-	this->display_contacts();	
+	this->display_contacts();
 }
 
 PhoneBook::~PhoneBook(void) {}

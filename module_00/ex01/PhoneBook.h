@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 12:07:05 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/19 14:13:07 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/11/15 14:30:15 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PHONE_BOOK_H
 
 #include <iostream>
+#include <sstream>
 #include "Contact.h"
 
 # define MAX_CONTACT 8

@@ -6,13 +6,13 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 14:13:38 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/29 15:59:27 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/11/15 14:43:04 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.h"
 
-DiamondTrap::DiamondTrap(void): ScavTrap("John Doe_clap_name"), FragTrap("John Doe_clap_name") 
+DiamondTrap::DiamondTrap(void): ScavTrap("John Doe_clap_name"), FragTrap("John Doe_clap_name")
 {
 	std::cout << "DiamondTrap default constructor called\n";
 	_name = "John Doe";
@@ -30,7 +30,7 @@ DiamondTrap::DiamondTrap(std::string name): ScavTrap(name + "_clap_name"), FragT
 	_attack = 30;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap& diamondtrap): ClapTrap(diamondtrap)
+DiamondTrap::DiamondTrap(const DiamondTrap& diamondtrap): ClapTrap(diamondtrap), ScavTrap(diamondtrap), FragTrap(diamondtrap)
 {
 	std::cout << "DiamondTrap clone constructor called\n";
 }
@@ -46,13 +46,6 @@ DiamondTrap::~DiamondTrap(void)
 {
 	std::cout << "DiamondTrap destructor called\n";
 }
-
-/*
-void	DiamondTrap::attack(const std::string& target)
-{
-	ScavTrap::attack(target);
-}
-*/
 
 void	DiamondTrap::whoAmI(void)
 {

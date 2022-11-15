@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 09:41:40 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/29 16:19:31 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/11/15 14:34:06 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CLAP_TRAP_H
 
 # include <iostream>
+# include <climits>
 
 class	ClapTrap
 {
