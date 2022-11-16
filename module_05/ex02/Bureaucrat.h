@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 10:59:55 by apigeon           #+#    #+#             */
-/*   Updated: 2022/09/08 15:30:51 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/11/16 14:11:07 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ class	Bureaucrat
 		void	incrementGrade(void);
 		void	decrementGrade(void);
 		void	signForm(Form& form);
+		void	executeForm(const Form& form) const;
 
 	private:
 		int					_grade;

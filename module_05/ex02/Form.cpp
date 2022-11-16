@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 12:17:28 by apigeon           #+#    #+#             */
-/*   Updated: 2022/09/08 18:16:31 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/11/16 14:09:14 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	Form::beSigned(const Bureaucrat& bureaucrat)
 	_signed = true;
 }
 
-void	Form::execute(const Bureaucrat& executor)
+void	Form::execute(const Bureaucrat& executor) const
 {
 	if (!_signed)
 		throw FormNotSignedException();

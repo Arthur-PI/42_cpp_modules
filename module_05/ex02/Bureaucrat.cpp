@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 11:03:22 by apigeon           #+#    #+#             */
-/*   Updated: 2022/09/08 15:52:09 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/11/16 14:15:18 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,22 @@ void	Bureaucrat::signForm(Form& form)
 		form.beSigned(*this);
 		std::cout << _name << " signed the form " << form.getName() << std::endl;
 	} catch (Form::GradeTooLowException& e) {
-		std::cout << _name << " couldn't sign the form " << form.getName() << std::endl;
+		std::cout << _name << " couldn't sign the form " << form.getName() << ", grade too low" << std::endl;
 	} catch (Form::GradeTooHighException& e) {
-		std::cout << _name << " couldn't sign the form " << form.getName() << std::endl;
+		std::cout << _name << " couldn't sign the form " << form.getName() << ", grade too high" << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm(const Form& form) const
+{
+	try {
+		form.execute(*this);
+		std::cout << _name << " executed " << form.getName() << std::endl;
+	} catch (Form::GradeTooLowException& e) {
+		std::cout << _name << " couldn't execute the form " << form.getName() << ", grade too low" << std::endl;
+	} catch (Form::GradeTooHighException& e) {
+		std::cout << _name << " couldn't execute the form " << form.getName() << ", grade too high" << std::endl;
+	} catch (Form::FormNotSignedException& e) {
+		std::cout << _name << " couldn't execute the form " << form.getName() << ", form not signed" << std::endl;
 	}
 }

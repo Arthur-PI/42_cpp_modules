@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 16:55:31 by apigeon           #+#    #+#             */
-/*   Updated: 2022/09/08 19:22:13 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/11/16 14:10:04 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ std::string	ShrubberyCreationForm::getTarget(void) const
 	return _target;
 }
 
-void	ShrubberyCreationForm::execute(const Bureaucrat& executor)
+void	ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
 	std::ofstream	file;
 
@@ -64,4 +64,5 @@ void	ShrubberyCreationForm::execute(const Bureaucrat& executor)
 	file << "       |o|        | |         | |" << std::endl;
 	file << "       |.|        | |         | |" << std::endl;
 	file << "    \\\\/ ._\\//_/__/  ,\\_//__\\\\/.  \\_//__/_" << std::endl;
+	file.close();
 }

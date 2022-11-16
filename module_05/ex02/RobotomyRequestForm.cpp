@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 18:57:49 by apigeon           #+#    #+#             */
-/*   Updated: 2022/09/08 19:26:06 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/11/16 14:26:01 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& robotomyrequ
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target):
-	Form::Form("shrubbery creation", 145, 137)
+	Form::Form("roboto request", 72, 45)
 {
 	_target = target;
 }
@@ -44,9 +44,10 @@ std::string	RobotomyRequestForm::getTarget(void) const
 	return _target;
 }
 
-void	RobotomyRequestForm::execute(const Bureaucrat& executor)
+void	RobotomyRequestForm::execute(const Bureaucrat& executor) const
 {
 	Form::execute(executor);
+	srand(time(NULL));
 	std::cout << "*** drilling noises ***" << std::endl;
 	if (rand() % 2)
 		std::cout << _target << " has been robotomized\n";

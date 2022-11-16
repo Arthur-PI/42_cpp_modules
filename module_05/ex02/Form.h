@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 12:13:32 by apigeon           #+#    #+#             */
-/*   Updated: 2022/09/08 19:23:34 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/11/16 14:09:24 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,13 @@ class	Form
 
 		// Member functions
 		virtual void	beSigned(const Bureaucrat& bureaucrat);
-		virtual void	execute(const Bureaucrat& executor);
+		virtual void	execute(const Bureaucrat& executor) const;
 
 	protected:
 		bool				_signed;
 		const int			_sign_grade;
 		const int			_exec_grade;
 		const std::string	_name;
-
 };
 
 std::ostream&	operator<<(std::ostream& stream, const Form& form);

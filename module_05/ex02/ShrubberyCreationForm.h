@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 16:54:12 by apigeon           #+#    #+#             */
-/*   Updated: 2022/09/08 18:43:22 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/11/16 14:10:02 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class	ShrubberyCreationForm: public Form
 		std::string	getTarget(void) const;
 
 		// Member functions
-		void	execute(const Bureaucrat& executor);
+		void	execute(const Bureaucrat& executor) const;
 
 	private:
 		std::string	_target;
