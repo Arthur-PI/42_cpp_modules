@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 21:57:58 by apigeon           #+#    #+#             */
-/*   Updated: 2022/11/17 22:51:53 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/11/17 23:10:32 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class	Array
 		}
 
 		Array(const Array<T>& array) {
+			delete[] _elems;
 			_size = array.size();
 			_elems = new T[_size];
 			for (unsigned int i=0; i < _size; i++)
@@ -34,7 +35,7 @@ class	Array
 
 		Array(unsigned int n) {
 			_size = n;
-			_elems = new T[n];
+			_elems = new T[n]();
 		}
 
 		// Destructor
@@ -45,6 +46,7 @@ class	Array
 		// Operators
 		Array<T>&	operator=(const Array<T>& array) {
 			if (this != &array) {
+				delete[] _elems;
 				_size = array.size();
 				_elems = new T[_size];
 				for (unsigned int i=0; i < _size; i++)
