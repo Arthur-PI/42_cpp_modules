@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:04:54 by apigeon           #+#    #+#             */
-/*   Updated: 2022/11/16 22:30:59 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/11/17 17:25:23 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@ class	Types
 
 		// Operators
 		Types&	operator=(const Types& types);
+
+		// Exceptions
+		struct NonNumericValue: public std::runtime_error {
+			NonNumericValue(void): std::runtime_error("the value isn't numerical") {}
+		};
 
 		// Getters and Setters
 		char	getCharValue(void) const;

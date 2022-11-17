@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:12:39 by apigeon           #+#    #+#             */
-/*   Updated: 2022/11/16 22:45:37 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/11/17 17:20:46 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,11 @@ static e_type	get_type(std::string value)
 			return TYPE_DOUBLE;
 		return TYPE_NOTHING;
 	}
-	if (value[i] == 0)
+	if (value.size() > 0 && value[i] == 0) {
+		if (value.size() > 11)
+			return TYPE_DOUBLE;
 		return TYPE_INT;
+	}
 	return TYPE_NOTHING;
 }
 
@@ -48,7 +51,7 @@ Types::Types(void)
 	_int_value = 0;
 	_float_value = 0;
 	_double_value = 0;
-	_type = TYPE_NOTHING;
+	_type = TYPE_INT;
 }
 
 Types::Types(const Types& types)
@@ -63,6 +66,7 @@ Types::Types(const Types& types)
 Types::Types(std::string value)
 {
 	_type = get_type(value);
+	_char_value = 0;
 	switch (_type) {
 		case TYPE_INT:
 			_int_value = std::atoi(value.c_str());
@@ -93,6 +97,9 @@ Types::Types(std::string value)
 		case TYPE_NAN:
 			_float_value = std::numeric_limits<float>::quiet_NaN();
 			_double_value = std::numeric_limits<double>::quiet_NaN();
+			break;
+		case TYPE_NOTHING:
+			throw NonNumericValue();
 			break;
 	}
 }
@@ -139,7 +146,7 @@ std::ostream&	operator<<(std::ostream& stream, const Types& types)
 	int	type;
 
 	type = types.getType();
-	if (type == TYPE_NAN || type == TYPE_INF_MINUS || type == TYPE_INF_PLUS)
+	if (type == TYPE_NAN || type == TYPE_INF_MINUS || type == TYPE_INF_PLUS || types.getIntValue() < 0 || types.getIntValue() > 127)
 		stream << "char: impossible" << std::endl;
 	else if (!std::isprint(types.getCharValue()))
 		stream << "char: Non displayable" << std::endl;
@@ -152,11 +159,11 @@ std::ostream&	operator<<(std::ostream& stream, const Types& types)
 	else
 		stream << "int: " << types.getIntValue() << std::endl;
 	stream << "float: " << types.getFloatValue();
-	if (types.getIntValue() == types.getFloatValue())
+	if (types.getIntValue() == types.getFloatValue() && types.getIntValue() < 1000000)
 		stream << ".0";
 	stream << "f" << std::endl;
 	stream << "double: " << types.getDoubleValue();
-	if (types.getIntValue() == types.getDoubleValue())
+	if (types.getIntValue() == types.getDoubleValue() && types.getIntValue() < 1000000)
 		stream << ".0";
 	stream << std::endl;
 	return stream;
