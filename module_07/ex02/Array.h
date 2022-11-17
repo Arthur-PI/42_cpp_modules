@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 21:57:58 by apigeon           #+#    #+#             */
-/*   Updated: 2022/11/17 23:10:32 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/11/18 00:48:10 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,11 @@ class	Array
 	public:
 		// Constructors
 		Array(void) {
-			_elems = new T[0];
+			_elems = NULL;
 			_size = 0;
 		}
 
 		Array(const Array<T>& array) {
-			delete[] _elems;
 			_size = array.size();
 			_elems = new T[_size];
 			for (unsigned int i=0; i < _size; i++)

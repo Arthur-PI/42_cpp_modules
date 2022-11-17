@@ -1,22 +1,42 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 21:38:31 by apigeon           #+#    #+#             */
-/*   Updated: 2022/11/17 22:53:28 by apigeon          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <iostream>
-#include "Array.h"
+#include <Array.h>
 
-int	main(void)
+#define MAX_VAL 750
+int main(int, char**)
 {
-	Array<int>	a = Array<int>(10);
-	Array<std::string>	a2 = Array<std::string>(20);
+    Array<int>  numbers(MAX_VAL);
+    int*        mirror = new int[MAX_VAL];
 
-	return 0;
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++) {
+        const int   value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
+    {
+        Array<int>  tmp = numbers;
+        Array<int>  test(tmp);
+    }
+    for (int i = 0; i < MAX_VAL; i++) {
+        if (mirror[i] != numbers[i]) {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+    try {
+        numbers[-2] = 0;
+    } catch (const std::exception& e) {
+        std::cerr << e.what() << '\n';
+    }
+    try {
+        numbers[MAX_VAL] = 0;
+    } catch (const std::exception& e) {
+        std::cerr << e.what() << '\n';
+    }
+
+    for (int i = 0; i < MAX_VAL; i++) {
+        numbers[i] = rand();
+    }
+    delete [] mirror;//
+    return 0;
 }
