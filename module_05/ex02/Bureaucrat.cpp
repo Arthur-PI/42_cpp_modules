@@ -74,28 +74,28 @@ void	Bureaucrat::decrementGrade(void)
 	_grade++;
 }
 
-void	Bureaucrat::signForm(Form& form)
+void	Bureaucrat::signForm(AForm& form)
 {
 	try {
 		form.beSigned(*this);
 		std::cout << _name << " signed the form " << form.getName() << std::endl;
-	} catch (Form::GradeTooLowException& e) {
+	} catch (AForm::GradeTooLowException& e) {
 		std::cout << _name << " couldn't sign the form " << form.getName() << ", grade too low" << std::endl;
-	} catch (Form::GradeTooHighException& e) {
+	} catch (AForm::GradeTooHighException& e) {
 		std::cout << _name << " couldn't sign the form " << form.getName() << ", grade too high" << std::endl;
 	}
 }
 
-void	Bureaucrat::executeForm(const Form& form) const
+void	Bureaucrat::executeForm(const AForm& form) const
 {
 	try {
 		form.execute(*this);
 		std::cout << _name << " executed " << form.getName() << std::endl;
-	} catch (Form::GradeTooLowException& e) {
+	} catch (AForm::GradeTooLowException& e) {
 		std::cout << _name << " couldn't execute the form " << form.getName() << ", grade too low" << std::endl;
-	} catch (Form::GradeTooHighException& e) {
+	} catch (AForm::GradeTooHighException& e) {
 		std::cout << _name << " couldn't execute the form " << form.getName() << ", grade too high" << std::endl;
-	} catch (Form::FormNotSignedException& e) {
+	} catch (AForm::FormNotSignedException& e) {
 		std::cout << _name << " couldn't execute the form " << form.getName() << ", form not signed" << std::endl;
 	}
 }

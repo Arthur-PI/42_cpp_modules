@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.h                                             :+:      :+:    :+:   */
+/*   AForm.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,27 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_H
-# define FORM_H
+#ifndef AFORM_H
+# define AFORM_H
 
 # include <iostream>
 # include "Bureaucrat.h"
 
 class	Bureaucrat;
 
-class	Form
+class	AForm
 {
 	public:
 		// Constructor
-		Form(void);
-		Form(const Form& form);
-		Form(std::string name, int sign_grade, int exec_grade);
+		AForm(void);
+		AForm(const AForm& form);
+		AForm(std::string name, int sign_grade, int exec_grade);
 
 		// Destructor
-		virtual ~Form();
+		virtual ~AForm();
 
 		// Operator
-		virtual Form&	operator=(const Form& form);
+		virtual AForm&	operator=(const AForm& form);
 
 		// Getters
 		virtual bool				getSigned(void) const;
@@ -62,6 +62,6 @@ class	Form
 		const std::string	_name;
 };
 
-std::ostream&	operator<<(std::ostream& stream, const Form& form);
+std::ostream&	operator<<(std::ostream& stream, const AForm& form);
 
 #endif

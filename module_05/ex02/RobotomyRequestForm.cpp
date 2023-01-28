@@ -13,19 +13,19 @@
 #include "RobotomyRequestForm.h"
 
 RobotomyRequestForm::RobotomyRequestForm(void):
-	Form::Form("roboto request", 72, 45)
+	AForm::AForm("roboto request", 72, 45)
 {
 	_target = "nobody";
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& robotomyrequestform):
-	Form::Form(robotomyrequestform)
+	AForm::AForm(robotomyrequestform)
 {
 	_target = robotomyrequestform.getTarget();
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target):
-	Form::Form("roboto request", 72, 45)
+	AForm::AForm("roboto request", 72, 45)
 {
 	_target = target;
 }
@@ -34,7 +34,7 @@ RobotomyRequestForm::~RobotomyRequestForm(void) {}
 
 RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& robotomyrequestform)
 {
-	Form::operator=(robotomyrequestform);
+	AForm::operator=(robotomyrequestform);
 	_target = robotomyrequestform.getTarget();
 	return *this;
 }
@@ -46,7 +46,7 @@ std::string	RobotomyRequestForm::getTarget(void) const
 
 void	RobotomyRequestForm::execute(const Bureaucrat& executor) const
 {
-	Form::execute(executor);
+	AForm::execute(executor);
 	srand(time(NULL));
 	std::cout << "*** drilling noises ***" << std::endl;
 	if (rand() % 2)

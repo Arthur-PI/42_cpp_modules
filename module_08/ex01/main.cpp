@@ -44,7 +44,7 @@ int	main(void)
 	}
 	{
 		std::cout << "\nTest for inserting range of iterators:\n";
-		int	numbers[10] = {0, 10, 20, 30, 40, 50, 60, 70, 80, 90};
+		int	numbers[10] = {1, 10, 20, 30, 40, 50, 60, 70, 80, 90};
 		std::vector<int> vec;
 		Span	sp(11);
 		
@@ -76,7 +76,7 @@ int	main(void)
 			sp.addNumber(4);
 			std::cout << "Number added\n";
 		} catch (Span::ListFullException& e) {
-			std::cout << "Error: could no add a number to Span because " << e.what() << "\n";
+			std::cout << "Error: could not add a number to Span because " << e.what() << "\n";
 		}
 	}
 	return 0;

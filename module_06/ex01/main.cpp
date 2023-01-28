@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <iostream>
+#include <stdint.h>
 #include "Data.h"
 
 uintptr_t	serialize(Data* ptr)
@@ -32,7 +33,7 @@ int	main(void)
 	data = new Data("Arthur");
 	std::cout << "Data* = " << data << "\n";
 	raw = serialize(data);
-	std::cout << "uintptr_t = " << raw << "\n";
+	std::cout << "uintptr_t = " << (void *)raw << "\n";
 	data2 =  deserialize(raw);
 	std::cout << "Deserialize Data* = " << data << "\n";
 	if (data == data2)

@@ -14,12 +14,12 @@
 # define BUREAUCRAT_H
 
 # include <iostream>
-# include "Form.h"
+# include "AForm.h"
 
 # define LOWEST_GRADE 150
 # define HIGHEST_GRADE 1
 
-class	Form;
+class	AForm;
 
 class	Bureaucrat
 {
@@ -51,8 +51,8 @@ class	Bureaucrat
 		// Member functions
 		void	incrementGrade(void);
 		void	decrementGrade(void);
-		void	signForm(Form& form);
-		void	executeForm(const Form& form) const;
+		void	signForm(AForm& form);
+		void	executeForm(const AForm& form) const;
 
 	private:
 		int					_grade;

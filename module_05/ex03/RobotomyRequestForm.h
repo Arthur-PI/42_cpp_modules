@@ -15,9 +15,9 @@
 
 # include <iostream>
 # include <stdlib.h>
-# include "Form.h"
+# include "AForm.h"
 
-class	RobotomyRequestForm: public Form
+class	RobotomyRequestForm: public AForm
 {
 	public:
 		// Constructors

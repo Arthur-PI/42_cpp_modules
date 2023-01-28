@@ -13,19 +13,19 @@
 #include "ShrubberyCreationForm.h"
 
 ShrubberyCreationForm::ShrubberyCreationForm(void):
-	Form::Form("shrubbery creation", 145, 137)
+	AForm::AForm("shrubbery creation", 145, 137)
 {
 	_target = "nobody";
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& shrubberycreationform):
-	Form::Form(shrubberycreationform)
+	AForm::AForm(shrubberycreationform)
 {
 	_target = shrubberycreationform.getTarget();
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target):
-	Form::Form("shrubbery creation", 145, 137)
+	AForm::AForm("shrubbery creation", 145, 137)
 {
 	_target = target;
 }
@@ -34,7 +34,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void) {}
 
 ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationForm& shrubberycreationform)
 {
-	Form::operator=(shrubberycreationform);
+	AForm::operator=(shrubberycreationform);
 	_target = shrubberycreationform.getTarget();
 	return *this;
 }
@@ -48,7 +48,7 @@ void	ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
 	std::ofstream	file;
 
-	Form::execute(executor);
+	AForm::execute(executor);
 	file.open((_target + "_shrubbery").c_str(), std::ofstream::out);
 	if (!file) {
 		std::cout << "Unable to open the output file\n";

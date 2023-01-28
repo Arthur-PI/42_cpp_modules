@@ -13,19 +13,19 @@
 #include "PresidentialPardonForm.h"
 
 PresidentialPardonForm::PresidentialPardonForm(void):
-	Form::Form("presidential pardon", 25, 5)
+	AForm::AForm("presidential pardon", 25, 5)
 {
 	_target = "nobody";
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& presidentialpardonform):
-	Form::Form(presidentialpardonform)
+	AForm::AForm(presidentialpardonform)
 {
 	_target = presidentialpardonform.getTarget();
 }
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target):
-	Form::Form("presidential pardon", 25, 5)
+	AForm::AForm("presidential pardon", 25, 5)
 {
 	_target = target;
 }
@@ -34,7 +34,7 @@ PresidentialPardonForm::~PresidentialPardonForm(void) {}
 
 PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPardonForm& presidentialpardonform)
 {
-	Form::operator=(presidentialpardonform);
+	AForm::operator=(presidentialpardonform);
 	_target = presidentialpardonform.getTarget();
 	return *this;
 }
@@ -46,6 +46,6 @@ std::string	PresidentialPardonForm::getTarget(void) const
 
 void	PresidentialPardonForm::execute(const Bureaucrat& executor) const
 {
-	Form::execute(executor);
+	AForm::execute(executor);
 	std::cout << _target << " has been pardoned by Zaphod Beeblebrox\n";
 }

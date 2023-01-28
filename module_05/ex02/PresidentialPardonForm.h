@@ -15,9 +15,9 @@
 
 # include <iostream>
 # include <stdlib.h>
-# include "Form.h"
+# include "AForm.h"
 
-class	PresidentialPardonForm: public Form
+class	PresidentialPardonForm: public AForm
 {
 	public:
 		// Constructors

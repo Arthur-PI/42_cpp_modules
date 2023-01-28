@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cstdlib>
+#include <typeinfo>
 #include "Base.h"
 #include "A.h"
 #include "B.h"
@@ -25,12 +27,15 @@ Base*	generate(void)
 	number = rand() % 3;
 	switch (number) {
 		case 0:
+			std::cout << "Creating an A\n";
 			base = new A();
 			break;
 		case 1:
+			std::cout << "Creating a B\n";
 			base = new B();
 			break;
 		case 2:
+			std::cout << "Creating a C\n";
 			base = new C();
 			break;
 		default:
@@ -44,12 +49,12 @@ void	identify(Base* p)
 	A*	a = dynamic_cast<A*>(p);
 	B*	b = dynamic_cast<B*>(p);
 	C*	c = dynamic_cast<C*>(p);
-	if (a != nullptr)
-		std::cout << "A\n";
-	else if (b != nullptr)
-		std::cout << "B\n";
-	else if (c != nullptr)
-		std::cout << "C\n";
+	if (a != NULL)
+		std::cout << "Pointer is an A\n";
+	else if (b != NULL)
+		std::cout << "Pointer is a B\n";
+	else if (c != NULL)
+		std::cout << "Pointer is a C\n";
 }
 
 void	identify(Base& p)
@@ -57,19 +62,19 @@ void	identify(Base& p)
 	try {
 		A&	a = dynamic_cast<A&>(p);
 		(void)a;
-		std::cout << "A\n";
+		std::cout << "Ref is an A\n";
 	} catch (std::bad_cast& e) {}
 
 	try {
 		B&	b = dynamic_cast<B&>(p);
 		(void)b;
-		std::cout << "B\n";
+		std::cout << "Ref is a B\n";
 	} catch (std::bad_cast& e) {}
 
 	try {
 		C&	c = dynamic_cast<C&>(p);
 		(void)c;
-		std::cout << "C\n";
+		std::cout << "Ref is a C\n";
 	} catch (std::bad_cast& e) {}
 }
 

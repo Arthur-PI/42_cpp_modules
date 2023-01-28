@@ -30,16 +30,16 @@ int main(void)
     for (int i=0; i < 10; i++)
         std::cout << numbers[i] << "\n";
     ::iter(numbers, 10, &plus_100);
-    std::cout << "After:\n";
+    std::cout << "\nAfter:\n";
     for (int i=0; i < 10; i++)
         std::cout << numbers[i] << "\n";
 
     std::string files[5] = {"test", "main", "parser", "utils", "colors"};
-    std::cout << "\nBefore:\n";
+    std::cout << "\n\nBefore:\n";
     for (int i=0; i < 5; i++)
         std::cout << files[i] << "\n";
     ::iter(files, 5, &add_c);
-    std::cout << "After:\n";
+    std::cout << "\nAfter:\n";
     for (int i=0; i < 5; i++)
         std::cout << files[i] << "\n";
     return 0;

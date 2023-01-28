@@ -51,7 +51,7 @@ class	MutantStack: public std::stack<T>
 		{
 			if (this->empty())
 				return (NULL);
-			return (&this->top());
+			return (&this->top() + 1);
 		}
 
 

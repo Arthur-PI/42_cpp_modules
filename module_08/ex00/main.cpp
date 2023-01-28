@@ -30,10 +30,9 @@ int	main(void)
 	std::cout << "List:\n";
 	for (unsigned int i=0; i < vec.size(); i++)
 		std::cout << vec[i] << "\n";
-
-	std::cout << "Find 5 in list: " << *::easyfind(vec, 5) << std::endl;
+	std::cout << "Find 5 in list: " << *(::easyfind(vec, 5)) << std::endl;
 	try {
-		std::cout << "Find 11 in list: " << *::easyfind(vec, 11) << std::endl;
+		std::cout << "Find 11 in list: " << *(::easyfind(vec, 11)) << std::endl;
 	} catch (std::exception& e) {
 		std::cout << "\nError could not find the element\n";
 	}

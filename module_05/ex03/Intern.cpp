@@ -20,10 +20,10 @@ Intern::~Intern(void) {}
 
 Intern&	Intern::operator=(const Intern& intern) { (void)intern; return *this;}
 
-Form*	Intern::makeForm(const std::string formName, const std::string targetName) const
+AForm*	Intern::makeForm(const std::string formName, const std::string targetName) const
 {
 	int		i;
-	Form*	form;
+	AForm*	form;
 	std::string	classes[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
 
 	i = 0;

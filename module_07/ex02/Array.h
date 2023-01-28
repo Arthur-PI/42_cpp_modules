@@ -14,6 +14,7 @@
 # define ARRAY_H
 
 # include <iostream>
+# include <limits>
 
 template <class T>
 class	Array
@@ -55,8 +56,8 @@ class	Array
 		}
 
 		// Getters and Setters
-		T&	operator[](unsigned int n) const {
-			if (n >= _size)
+		T&	operator[](std::size_t n) const {
+			if (n >= _size || n > std::numeric_limits<unsigned int>::max())
 				throw std::exception();
 			return _elems[n];
 		}

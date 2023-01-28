@@ -20,7 +20,7 @@ int	main(void)
 {
 	{
 		Intern	intern;
-		Form*	form;
+		AForm*	form;
 
 		form = intern.makeForm("shrubbery creation", "Bender");
 		if (form)
@@ -28,7 +28,7 @@ int	main(void)
 	}
 	{
 		Intern	intern;
-		Form*	form;
+		AForm*	form;
 
 		form = intern.makeForm("robotomy request", "Bender");
 		if (form)
@@ -36,7 +36,7 @@ int	main(void)
 	}
 	{
 		Intern	intern;
-		Form*	form;
+		AForm*	form;
 
 		form = intern.makeForm("presidential pardon", "Bender");
 		if (form)
@@ -44,7 +44,7 @@ int	main(void)
 	}
 	{
 		Intern	intern;
-		Form*	form;
+		AForm*	form;
 
 		form = intern.makeForm("some random form", "Bender");
 		if (form)
