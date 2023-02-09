@@ -60,7 +60,8 @@ static std::string	read_prompt(std::string prompt, bool (*validator)(std::string
 
 	while (true) {
 		std::cout << BLUE << prompt << CYAN;
-		std::getline(std::cin, answer);
+		if (!std::getline(std::cin, answer))
+			exit(1);
 		if (is_empty(answer))
 			std::cout << RED << "Your input cannot be an empty string.\n" << RESET;
 		else if (validator && !validator(answer))
@@ -137,7 +138,8 @@ void	PhoneBook::display_contacts(void)
 		std::cout << BLUE << "---------------------------------------------\n" << RESET;
 	}
 	std::cout << PURPLE << "\nPlease enter the id of the contact you want to see: " << CYAN;
-	std::getline(std::cin, input);
+	if (!std::getline(std::cin, input))
+		exit(1);
 	std::cout << RESET;
 	id = 0;
 	if (input.length() == 1)

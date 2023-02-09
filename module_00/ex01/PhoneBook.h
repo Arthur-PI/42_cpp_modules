@@ -13,9 +13,10 @@
 #ifndef PHONE_BOOK_H
 # define PHONE_BOOK_H
 
-#include <iostream>
-#include <sstream>
-#include "Contact.h"
+# include <iostream>
+# include <sstream>
+# include <cstdlib>
+# include "Contact.h"
 
 # define MAX_CONTACT 8
 

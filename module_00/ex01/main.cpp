@@ -24,7 +24,8 @@ int	main(void)
 	phonebook = PhoneBook();
 	do {
 		std::cout << BLUE << "PhoneBook> " << CYAN;
-		std::getline(std::cin, line);
+		if (!std::getline(std::cin, line))
+			return (1);
 		std::cout << RESET;
 		if (line == "ADD")
 			phonebook.add_contact();
