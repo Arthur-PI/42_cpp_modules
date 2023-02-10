@@ -28,7 +28,7 @@ void	HumanB::setWeapon(Weapon &weapon)
 	_weapon = &weapon;
 }
 
-void	HumanB::attack(void)
+void	HumanB::attack(void) const
 {
 	if (_weapon == NULL)
 		std::cout << _name << " attacks with their fists\n";
