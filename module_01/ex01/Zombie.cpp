@@ -14,7 +14,7 @@
 
 Zombie::Zombie(void)
 {
-	_name = "Deafault";
+	_name = "Default";
 }
 
 Zombie::Zombie(std::string name)

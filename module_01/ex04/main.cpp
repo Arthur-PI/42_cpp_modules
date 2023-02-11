@@ -39,17 +39,21 @@ int	main(int ac, char **av)
 		return usage(av[0]);
 
 	filename = av[1];
+	if (std::string().compare(av[2]) == 0) {
+		std::cout << "Can't replace nothing" << std::endl;
+		return 2;
+	}
 	in.open(filename.c_str(), std::ifstream::in);
 	if (!in) {
 		std::cout << "Unable to open the input file\n";
-		return 2;
+		return 3;
 	}
 
 	out.open((filename + ".replace").c_str(), std::ofstream::out);
 	if (!out) {
 		in.close();
 		std::cout << "Unable to open the output file\n";
-		return 3;
+		return 4;
 	}
 
 	to_find = av[2];

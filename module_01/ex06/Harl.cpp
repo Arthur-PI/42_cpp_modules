@@ -37,7 +37,7 @@ void	Harl::complain(std::string level)
 			error();
 			break;
 		default:
-			std::cout << "[Probably complaining about insignicant problems]\n";
+			std::cout << "[Probably complaining about insignificant problems]\n";
 	}
 }
 
