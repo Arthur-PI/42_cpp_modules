@@ -22,24 +22,24 @@ class Fixed
 		Fixed(void);
 		Fixed(const int value);
 		Fixed(const float value);
-		Fixed(const Fixed &fixed);
+		Fixed(const Fixed& fixed);
 		~Fixed(void);
-		Fixed&	operator=(const Fixed &fixed);
-		Fixed	operator+(const Fixed &fixed);
-		Fixed	operator-(const Fixed &fixed);
-		Fixed	operator*(const Fixed &fixed);
-		Fixed	operator/(const Fixed &fixed);
-		bool	operator>(const Fixed &fixed) const;
-		bool	operator<(const Fixed &fixed) const;
-		bool	operator>=(const Fixed &fixed) const;
-		bool	operator<=(const Fixed &fixed) const;
-		bool	operator==(const Fixed &fixed) const;
-		bool	operator!=(const Fixed &fixed) const;
+		Fixed&	operator=(const Fixed& fixed);
+		Fixed	operator+(const Fixed& fixed);
+		Fixed	operator-(const Fixed& fixed);
+		Fixed	operator*(const Fixed& fixed);
+		Fixed	operator/(const Fixed& fixed);
+		bool	operator>(const Fixed& fixed) const;
+		bool	operator<(const Fixed& fixed) const;
+		bool	operator>=(const Fixed& fixed) const;
+		bool	operator<=(const Fixed& fixed) const;
+		bool	operator==(const Fixed& fixed) const;
+		bool	operator!=(const Fixed& fixed) const;
 		Fixed&	operator++(void);
 		Fixed	operator++(int);
 		Fixed&	operator--(void);
 		Fixed	operator--(int);
-		void	setRawBits(int const raw);
+		void	setRawBits(const int raw);
 		int		getRawBits(void) const;
 		int		toInt(void) const;
 		float	toFloat(void) const;
@@ -50,10 +50,10 @@ class Fixed
 		static const Fixed&	max(const Fixed& f1, const Fixed& f2);
 
 	private:
-		int	_bits;
+		int					_bits;
 		static const int	_fractional_bits = 8;
 };
 
-std::ostream &operator<<(std::ostream & stream, const Fixed &fixed);
+std::ostream &operator<<(std::ostream& stream, const Fixed& fixed);
 
 #endif

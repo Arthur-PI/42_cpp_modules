@@ -22,19 +22,19 @@ class Fixed
 		Fixed(void);
 		Fixed(const int value);
 		Fixed(const float value);
-		Fixed(const Fixed &fixed);
+		Fixed(const Fixed& fixed);
 		~Fixed(void);
-		Fixed &operator=(const Fixed &fixed);
-		void	setRawBits(int const raw);
+		Fixed&	operator=(const Fixed& fixed);
+		void	setRawBits(const int raw);
 		int		getRawBits(void) const;
 		int		toInt(void) const;
 		float	toFloat(void) const;
 
 	private:
-		int	_bits;
+		int					_bits;
 		static const int	_fractional_bits = 8;
 };
 
-std::ostream &operator<<(std::ostream & stream, const Fixed &fixed);
+std::ostream &operator<<(std::ostream& stream, const Fixed& fixed);
 
 #endif

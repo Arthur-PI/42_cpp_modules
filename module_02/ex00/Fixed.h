@@ -19,14 +19,14 @@ class Fixed
 {
 	public:
 		Fixed(void);
-		Fixed(const Fixed &fixed);
+		Fixed(const Fixed& fixed);
 		~Fixed(void);
-		Fixed & operator=(const Fixed &fixed);
+		Fixed & operator=(const Fixed& fixed);
 		int		getRawBits(void) const;
-		void	setRawBits(int const raw);
+		void	setRawBits(const int raw);
 
 	private:
-		int	_value;
+		int					_value;
 		static const int	fractional_bits = 8;
 };
 
