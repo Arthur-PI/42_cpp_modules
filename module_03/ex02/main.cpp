@@ -33,5 +33,6 @@ int	main(void)
 	st2.guardGate();
 	ft1.attack("Arthur");
 	ct1.takeDamage(ft1.getAttack());
+	ft1.highFivesGuys();
 	return 0;
 }

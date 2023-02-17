@@ -49,5 +49,5 @@ DiamondTrap::~DiamondTrap(void)
 
 void	DiamondTrap::whoAmI(void)
 {
-	std::cout << "DiamondTrap " << _name << " aka " << FragTrap::_name << std::endl;
+	std::cout << "DiamondTrap " << _name << " aka " << ClapTrap::_name << std::endl;
 }

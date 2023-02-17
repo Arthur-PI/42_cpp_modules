@@ -21,10 +21,10 @@ class	ClapTrap
 	public:
 		ClapTrap(void);
 		ClapTrap(const ClapTrap& claptrap);
-		ClapTrap&	operator=(const ClapTrap& claptrap);
+		ClapTrap(std::string name);
 		~ClapTrap(void);
 
-		ClapTrap(std::string name);
+		ClapTrap&	operator=(const ClapTrap& claptrap);
 
 		void			attack(const std::string& target);
 		void			takeDamage(unsigned int amount);
