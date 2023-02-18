@@ -27,7 +27,7 @@ class	AForm
 		AForm(std::string name, int sign_grade, int exec_grade);
 
 		// Destructor
-		virtual ~AForm();
+		virtual ~AForm() = 0;
 
 		// Operator
 		virtual AForm&	operator=(const AForm& form);
