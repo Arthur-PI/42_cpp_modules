@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 09:58:37 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/30 16:09:33 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/08/30 13:54:28 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ Cat::~Cat(void)
 Cat&	Cat::operator=(const Cat& cat)
 {
 	std::cout << "Cat copy assignment operator called\n";
-	_type = cat.getType();
-	_brain = new Brain(*(cat.getBrain()));
+	_type = cat._type;
+	_brain = new Brain(*cat._brain);
 	return *this;
 }
 

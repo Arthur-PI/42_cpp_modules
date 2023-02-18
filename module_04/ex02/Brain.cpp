@@ -27,7 +27,7 @@ Brain&	Brain::operator=(const Brain& brain)
 {
 	std::cout << "Brain copy assignment operator called\n";
 	for (int i=0; i < MAX_IDEAS; i++)
-		_ideas[i] = brain.getIdea(i);
+		_ideas[i] = brain._ideas[i];
 	return *this;
 }
 

@@ -22,15 +22,17 @@ int	main(void)
 
 		delete dog;
 		delete cat;
+		std::cout << std::endl;
 	}
 	{
 		Dog	dog;
 		Dog	dog2(dog);
-	
+
 		dog.getBrain()->setIdea(0, "Bark at night");
 		dog2.getBrain()->setIdea(0, "Bark at sunshine");
 		std::cout << dog.getBrain()->getIdea(0) << std::endl;
 		std::cout << dog2.getBrain()->getIdea(0) << std::endl;
+		std::cout << std::endl;
 	}
 	{
 		Cat	cat;
@@ -41,17 +43,5 @@ int	main(void)
 		std::cout << cat.getBrain()->getIdea(0) << std::endl;
 		std::cout << cat2.getBrain()->getIdea(0) << std::endl;
 	}
-	{
-		Animal	*animals[100];
-		for (int i=0; i < 100; i++) {
-			if (i % 2)
-				animals[i] = new Cat();
-			else
-				animals[i] = new Dog();
-		}
-		for (int i=0; i < 100; i++)
-			delete animals[i];
-	}
-
 	return (0);
 }

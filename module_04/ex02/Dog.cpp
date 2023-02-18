@@ -6,7 +6,7 @@
 /*   By: apigeon <apigeon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 09:55:56 by apigeon           #+#    #+#             */
-/*   Updated: 2022/08/30 16:09:15 by apigeon          ###   ########.fr       */
+/*   Updated: 2022/08/30 13:53:16 by apigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ Dog::Dog(const Dog& dog)
 Dog&	Dog::operator=(const Dog& dog)
 {
 	std::cout << "Dog copy assignment operator called\n";
-	_type = dog.getType();
-	_brain = new Brain(*(dog.getBrain()));
+	_type = dog._type;
+	_brain = new Brain(*dog._brain);
 	return *this;
 }
 
