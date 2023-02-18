@@ -28,8 +28,8 @@ Dog::Dog(const Dog& dog): Animal(dog)
 Dog&	Dog::operator=(const Dog& dog)
 {
 	std::cout << "Dog copy assignment operator called\n";
-	_type = dog.getType();
-	_brain = new Brain(*(dog.getBrain()));
+	_type = dog._type;
+	_brain = new Brain(*dog._brain);
 	return *this;
 }
 

@@ -21,7 +21,7 @@ Animal::Animal(void)
 Animal::Animal(const Animal& animal)
 {
 	std::cout << "Animal clone constructor called\n";
-	_type = animal.getType();
+	_type = animal._type;
 }
 
 Animal::~Animal(void)
@@ -32,7 +32,7 @@ Animal::~Animal(void)
 Animal&	Animal::operator=(const Animal& animal)
 {
 	std::cout << "Animal copy assignment operator called\n";
-	_type = animal.getType();
+	_type = animal._type;
 	return *this;
 }
 

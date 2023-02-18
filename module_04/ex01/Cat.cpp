@@ -34,8 +34,8 @@ Cat::~Cat(void)
 Cat&	Cat::operator=(const Cat& cat)
 {
 	std::cout << "Cat copy assignment operator called\n";
-	_type = cat.getType();
-	_brain = new Brain(*(cat.getBrain()));
+	_type = cat._type;
+	_brain = new Brain(*cat._brain);
 	return *this;
 }
 
