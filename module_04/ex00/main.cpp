@@ -23,14 +23,16 @@ int	main(void)
 	const Animal*		cat = new Cat();
 	const WrongAnimal*	wrong_cat = new WrongCat();
 
-	std::cout << dog->getType() << " " << std::endl;
-	std::cout << cat->getType() << " " << std::endl;
-	std::cout << wrong_cat->getType() << " " << std::endl;
+	std::cout << meta->getType() << std::endl;
+	std::cout << dog->getType() << std::endl;
+	std::cout << cat->getType() << std::endl;
+	std::cout << wrong_cat->getType() << std::endl << std::endl;
+	meta->makeSound();
 	dog->makeSound();
 	cat->makeSound();
 	wrong_cat->makeSound();
-	meta->makeSound();
 
+	std::cout << std::endl;
 	delete meta;
 	delete dog;
 	delete cat;

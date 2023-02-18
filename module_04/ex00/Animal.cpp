@@ -14,22 +14,25 @@
 
 Animal::Animal(void)
 {
+	std::cout << "Animal default constructor\n";
 	_type = "Default Animal";
 }
 
 Animal::Animal(const Animal& animal)
 {
-	_type = animal.getType();
+	std::cout << "Animal copy constructor\n";
+	_type = animal._type;
 }
 
 Animal::~Animal(void)
 {
-	// TODO
+	std::cout << "Animal destructor\n";
 }
 
 Animal&	Animal::operator=(const Animal& animal)
 {
-	_type = animal.getType();
+	std::cout << "Animal copy assignement operator\n";
+	_type = animal._type;
 	return *this;
 }
 

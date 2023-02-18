@@ -14,7 +14,8 @@
 
 WrongCat::WrongCat(void)
 {
-	_type = "Cat";
+	std::cout << "WrongCat default contructor\n";
+	_type = "Wrong Cat";
 }
 
 void	WrongCat::makeSound(void) const

@@ -14,21 +14,24 @@
 
 WrongAnimal::WrongAnimal(void)
 {
-	_type = "Default Animal";
+	std::cout << "WrongAnimal default constructor\n";
+	_type = "Default Wrong Animal";
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& animal)
 {
+	std::cout << "WrongAnimal copy constructor\n";
 	_type = animal.getType();
 }
 
 WrongAnimal::~WrongAnimal(void)
 {
-	// TODO
+	std::cout << "WrongAnimal destructor\n";
 }
 
 WrongAnimal&	WrongAnimal::operator=(const WrongAnimal& animal)
 {
+	std::cout << "WrongAnimal copy assignment operator\n";
 	_type = animal.getType();
 	return *this;
 }

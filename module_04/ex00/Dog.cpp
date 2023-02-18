@@ -14,6 +14,7 @@
 
 Dog::Dog(void)
 {
+	std::cout << "Dog default constructor\n";
 	_type = "Dog";
 }
 

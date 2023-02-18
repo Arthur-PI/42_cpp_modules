@@ -14,6 +14,7 @@
 
 Cat::Cat(void)
 {
+	std::cout << "Cat default constructor\n";
 	_type = "Cat";
 }
 
