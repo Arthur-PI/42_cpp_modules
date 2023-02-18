@@ -17,6 +17,7 @@ int	main(void)
 	{
 		std::cout << "Test constuctors, increment, decrement and << operator:\n";
 		Bureaucrat	b1 = Bureaucrat("Arthur", 1);
+		std::cout << b1 << std::endl;
 		b1.decrementGrade();
 		b1.decrementGrade();
 		Bureaucrat	b2 = b1;
@@ -26,8 +27,8 @@ int	main(void)
 		b3.incrementGrade();
 		std::cout << b1 << std::endl;
 		std::cout << Bureaucrat() << std::endl;
-		std::cout << b2 << std::endl;
-		std::cout << b3 << std::endl;
+		std::cout << "(Clone 1): " << b2 << std::endl;
+		std::cout << "(Clone 2): "<< b3 << std::endl;
 	}
 	{
 		std::cout << "\nTest errors on constructors and increment, decrement:\n";
