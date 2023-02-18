@@ -12,25 +12,9 @@
 
 #include "AMateria.h"
 
-AMateria::AMateria(void)
-{
-	_type = "void";
-}
-
 AMateria::AMateria(const std::string& type)
 {
 	_type = type;
-}
-
-AMateria::AMateria(const AMateria& materia)
-{
-	*this = materia;
-}
-
-AMateria&	AMateria::operator=(const AMateria& materia)
-{
-	_type = materia.getType();
-	return *this;
 }
 
 const std::string&	AMateria::getType(void) const

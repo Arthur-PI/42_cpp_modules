@@ -21,12 +21,8 @@ class ICharacter;
 class	AMateria
 {
 	public:
-		AMateria(void);
-		AMateria(const AMateria& materia);
 		AMateria(const std::string& type);
 
-		AMateria&	operator=(const AMateria& materia);
-		
 		virtual ~AMateria(void) {};
 
 		const std::string&	getType(void) const;
