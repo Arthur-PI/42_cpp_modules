@@ -151,7 +151,7 @@ std::ostream&	operator<<(std::ostream& stream, const Types& types)
 	else if (!std::isprint(types.getCharValue()))
 		stream << "char: Non displayable" << std::endl;
 	else
-		stream << "char: " << types.getCharValue() << std::endl;
+		stream << "char: '" << types.getCharValue() << "'" << std::endl;
 	if (type == TYPE_NAN || type == TYPE_INF_MINUS || type == TYPE_INF_PLUS)
 		stream << "int: impossible" << std::endl;
 	else if ((type == TYPE_FLOAT || type == TYPE_DOUBLE) && (types.getFloatValue() > std::numeric_limits<int>::max() || types.getFloatValue() < std::numeric_limits<int>::min()))
