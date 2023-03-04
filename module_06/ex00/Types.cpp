@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "Types.h"
+#include <limits>
 
 static e_type	get_type(std::string value)
 {
@@ -38,7 +39,7 @@ static e_type	get_type(std::string value)
 		return TYPE_NOTHING;
 	}
 	if (value.size() > 0 && value[i] == 0) {
-		if (value.size() > 11)
+		if (value.size() > 11 || atof(value.c_str()) > std::numeric_limits<int>::max() || atof(value.c_str()) < std::numeric_limits<int>::min())
 			return TYPE_DOUBLE;
 		return TYPE_INT;
 	}
@@ -154,7 +155,7 @@ std::ostream&	operator<<(std::ostream& stream, const Types& types)
 		stream << "char: '" << types.getCharValue() << "'" << std::endl;
 	if (type == TYPE_NAN || type == TYPE_INF_MINUS || type == TYPE_INF_PLUS)
 		stream << "int: impossible" << std::endl;
-	else if ((type == TYPE_FLOAT || type == TYPE_DOUBLE) && (types.getFloatValue() > std::numeric_limits<int>::max() || types.getFloatValue() < std::numeric_limits<int>::min()))
+	else if ((type == TYPE_FLOAT || type == TYPE_DOUBLE) && (types.getDoubleValue() > std::numeric_limits<int>::max() || types.getDoubleValue() < std::numeric_limits<int>::min()))
 		stream << "int: impossible" << std::endl;
 	else
 		stream << "int: " << types.getIntValue() << std::endl;
