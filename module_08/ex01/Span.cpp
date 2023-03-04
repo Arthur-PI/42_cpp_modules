@@ -19,7 +19,7 @@ Span::Span(void)
 
 Span::Span(const Span& span)
 {
-	_size = span.getSize();
+	*this = span;
 }
 
 Span::Span(unsigned int n)
@@ -31,7 +31,11 @@ Span::~Span(void) {}
 
 Span&	Span::operator=(const Span& span)
 {
-	_size = span.getSize();
+	if (this != &span)
+	{
+		_size = span._size;
+		_tab = span._tab;
+	}
 	return *this;
 }
 
