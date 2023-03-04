@@ -16,44 +16,40 @@
 # include <iostream>
 # include <stack>
 
-template <class T>
-class	MutantStack: public std::stack<T>
+template <class T, class Container = std::deque<T> >
+class	MutantStack: public std::stack<T, Container>
 {
 	public:
 		// Typedefs
-		typedef T* iterator;
+		typedef typename Container::iterator iterator;
 
 		// Constructors
-		MutantStack(void): std::stack<T>() {}
-		MutantStack(const MutantStack& mutantstack): std::stack<T>(mutantstack) {}
+		MutantStack(void): std::stack<T, Container>() {}
+		MutantStack(const MutantStack& mutantstack): std::stack<T, Container>(mutantstack) {}
 
 		// Destructor
 		~MutantStack(void) {}
 
-		// Operators
-		MutantStack&	operator=(const MutantStack& mutantstack)
-		{
-			std::stack<T>::operator=(mutantstack);
-		}
-
-		// Getters and Setters
-
 		// Member functions
-
 		iterator	begin(void)
 		{
-			if (this->empty())
-				return (NULL);
-			return ((&this->top()) - (this->size() - 1));
+			return this->c.begin();
 		}
 
 		iterator	end(void)
 		{
-			if (this->empty())
-				return (NULL);
-			return (&this->top() + 1);
+			return this->c.end();
 		}
 
+		const iterator	begin(void) const
+		{
+			return this->c.begin();
+		}
+
+		const iterator	end(void) const
+		{
+			return this->c.end();
+		}
 
 	private:
 

@@ -17,6 +17,7 @@
 int main(void)
 {
 	MutantStack<int>	mstack;
+	MutantStack<int>	stack2;
 
 	mstack.push(5);
 	std::cout << "Pushing " << 5 << " in the stack\n";
@@ -43,6 +44,7 @@ int main(void)
 	MutantStack<int>::iterator it = mstack.begin();
 	MutantStack<int>::iterator ite = mstack.end();
 	std::cout << "Bottom is " << *it << std::endl;
+	stack2 = mstack;
 	
 	++it;
 	--it;
