@@ -8,12 +8,12 @@ RM			= rm -rf
 OBJ_DIR		= bin
 
 SRCS	= main.cpp \
-		  PmergeMe.cpp \
+		  BitcoinExchange.cpp \
 
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 DEPS	= $(OBJS:.o=.d)
 
-NAME	= easyfind
+NAME	= btc
 
 VALGRIND	= valgrind --leak-check=full --track-origins=yes
 
