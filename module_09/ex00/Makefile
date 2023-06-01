@@ -1,4 +1,4 @@
-CC			= c++
+CC			= clang++
 CPPFLAGS	= -Wall -Wextra -std=c++98
 CPPFLAGS	+= -Werror
 CPPFLAGS	+= -g
@@ -7,8 +7,9 @@ IFLAGS		=
 RM			= rm -rf
 OBJ_DIR		= bin
 
-SRCS	= main.cpp \
-		  BitcoinExchange.cpp \
+SRCS	=	main.cpp \
+			BitcoinExchange.cpp \
+			Date.cpp
 
 OBJS	= $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 DEPS	= $(OBJS:.o=.d)
@@ -27,7 +28,7 @@ $(NAME):	$(OBJS)
 	$(CC) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
 run:		$(NAME)
-	./$(NAME)
+	@./$(NAME) input.txt
 
 val:		$(NAME)
 	$(VALGRIND) ./$(NAME)

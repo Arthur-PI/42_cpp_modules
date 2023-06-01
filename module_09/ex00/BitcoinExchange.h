@@ -1,5 +1,12 @@
+#pragma once
+
 #include <iostream>
-#include <unordered_map>
+//#include <type_traits>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+
+#include "Date.h"
 
 class	BitcoinExchange {
 	public:
@@ -10,19 +17,18 @@ class	BitcoinExchange {
 		BitcoinExchange(const std::string& file);
 		~BitcoinExchange(void);
 
-		class Date {
-			public:
-
-			private:
-				
-		};
-
-		void	compute_prices(const std::string& file);
+		void	compute_prices(const std::string& file) const;
+		void	add_date(const std::string& line);
 
 	private:
-		Date								min_date;
-		Date								max_date;
-		std::unordered_map<Date, double>	prices;
+		Date									min_date;
+		Date									max_date;
+		std::vector<std::pair<Date, double> >	prices;
+
+		// ** private functions ***
+		void	parse_file(void);
+		void	compute_price(const std::string& line) const;
+		void	insert_price(std::pair<Date, double> line);
 };
 
 bool	is_valid_file(const std::string& file);

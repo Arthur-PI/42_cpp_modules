@@ -1,0 +1,10 @@
+empty line
+missing price
+missing date
+invalid date
+invalid price
+wrong place
+multiple date/price
+empty file
+directory
+no permissions file
