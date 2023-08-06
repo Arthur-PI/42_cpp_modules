@@ -22,34 +22,22 @@ Date::Date(const std::string& date)
 
 	date_stream >> year >> sep1 >> month >> sep2 >> day;
 	// std::cout << date << std::endl;
-	if (date_stream.fail()) {
-		std::cout << "Exit 1\n";
+	if (date_stream.fail())
 		throw InvalidDate();
-	}
-	if (date_stream.bad()) {
-		std::cout << "Exit 2\n";
+	if (date_stream.bad())
 		throw InvalidDate();
-	}
-	if (sep1 != '-') {
-		std::cout << "Exit 3\n";
+	if (sep1 != '-')
 		throw InvalidDate();
-	}
-	if (sep2 != '-') {
-		std::cout << "Exit 4\n";
+	if (sep2 != '-')
 		throw InvalidDate();
-	}
-	if (date_stream.peek() != -1) {
-		std::cout << "Exit 5\n";
+	if (date_stream.peek() != -1)
 		throw InvalidDate();
-	}
-	if (month == 0 || month > 12) {
-		std::cout << "Exit 6\n";
+	if (year <= 0 || year > 3000)
 		throw InvalidDate();
-	}
-	if (day == 0 || day > get_nb_days(month)) {
-		std::cout << "Exit 7\n";
+	if (month <= 0 || month > 12)
 		throw InvalidDate();
-	}
+	if (day <= 0 || day > get_nb_days(month))
+		throw InvalidDate();
 }
 
 Date&	Date::operator=(const Date& date)
@@ -64,9 +52,9 @@ Date&	Date::operator=(const Date& date)
 
 Date::~Date(void) {}
 
-size_t	Date::get_nb_days(size_t m) const
+int	Date::get_nb_days(size_t m) const
 {
-	size_t	nb_days;
+	int	nb_days;
 
 	nb_days = 30;
 	if (m > 7)

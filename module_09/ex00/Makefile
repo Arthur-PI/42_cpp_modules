@@ -1,7 +1,7 @@
 CC			= clang++
 CPPFLAGS	= -Wall -Wextra -std=c++98
 CPPFLAGS	+= -Werror
-CPPFLAGS	+= -g
+CPPFLAGS	+= -g -fsanitize=address
 CPPFLAGS	+= -MMD -MP
 IFLAGS		= 
 RM			= rm -rf

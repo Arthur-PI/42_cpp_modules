@@ -33,12 +33,12 @@ class Date {
 		
 
 	private:
-		size_t	year;
-		size_t	month;
-		size_t	day;
+		int	    year;
+		int     month;
+		int   	day;
 
 		// *** private functions ***
-		size_t	get_nb_days(size_t m) const;
+		int	    get_nb_days(size_t m) const;
 };
 
 bool	operator==(const Date& d1, const Date& d2);
