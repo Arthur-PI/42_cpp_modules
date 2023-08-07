@@ -3,8 +3,11 @@
 
 int main(int ac, char** av)
 {
-  (void)ac;
-  (void)av;
-  std::cout << "Hello world, let's merge some lists!\n";
-  return 0;
+    if (ac == 1) {
+        std::cerr << "Usage: " << av[0] << " <number [number number ...]>" << std::endl;
+        exit(1);
+    }
+    PmergeMe    list(av + 1);
+    list.sort();
+    return 0;
 }
