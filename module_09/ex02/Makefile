@@ -14,7 +14,7 @@ OBJS	= $(addprefix $(OBJ_DIR)/, $(SRCS:.cpp=.o))
 DEPS	= $(OBJS:.o=.d)
 
 NAME	= PmergeMe
-ARGS = 5 6 4 9 23 6 98 23
+ARGS = 6 4 8 0 2 3 4 5 12 6 7 56  84  2 15
 
 VALGRIND	= valgrind --leak-check=full --track-origins=yes
 

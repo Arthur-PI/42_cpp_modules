@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <iostream>
+#include <sys/time.h>
 #include "PmergeMe.hpp"
 
 #define INSERT_TRESHOLD 40
@@ -22,9 +23,14 @@ public:
 
 private:
 	std::vector<size_t>	_list_vec;
+	std::vector<size_t>	_list_sorted_vec;
 	std::deque<size_t>	_list_deque;
+	std::vector<size_t>	_list_sorted_deque;
 	double				_time_vec;
 	double				_time_deque;
+
+	bool	_is_sorted_vec();
+	bool	_is_sorted_deque();
 	
 	void	_insertion_sort_vec(size_t start, size_t end);
 	void	_sort_vec(size_t start, size_t end);
