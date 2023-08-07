@@ -6,6 +6,7 @@
 #include <string>
 #include <sys/stat.h>
 #include <cctype>
+#include <sstream>
 
 BitcoinExchange::BitcoinExchange(void): min_date(), max_date(), prices() {}
 
@@ -106,6 +107,18 @@ void	BitcoinExchange::add_date(const std::string& line)
 	insert_price(std::pair<Date, double>(date, price));
 }
 
+static std::string format_number(int n, int len)
+{
+  std::ostringstream stream;
+  len--;
+  while (n < len * 10) {
+    stream << '0';
+    len--;
+  }
+  stream << n;
+  return stream.str();
+}
+
 void	BitcoinExchange::compute_price(const std::string& line) const
 {
 	Date	date;
@@ -147,7 +160,7 @@ void	BitcoinExchange::compute_price(const std::string& line) const
 		}
 		price = prices[i].second;
 	}
-  std::cout << date.get_year() << "-" << date.get_month() << "-" << date.get_day() << " => " << amount << " = " << price * amount << std::endl;
+  std::cout << date.get_year() << "-" << format_number(date.get_month(), 2) << "-" << format_number(date.get_day(), 2) << " => " << amount << " = " << price * amount << std::endl;
 }
 
 void	BitcoinExchange::compute_prices(const std::string& file) const
