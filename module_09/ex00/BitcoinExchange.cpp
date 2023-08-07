@@ -54,12 +54,9 @@ BitcoinExchange&	BitcoinExchange::operator=(const BitcoinExchange& be)
 
 BitcoinExchange::~BitcoinExchange(void) {}
 
-void	BitcoinExchange::insert_price(std::pair<Date, double> price)
+void	BitcoinExchange::insert_price(std::pair<Date, double> val)
 {
-	std::vector<std::pair<Date, double> >::iterator it;
-
-	for (it=prices.begin(); it < prices.end() && price > *it; it++) { }
-	prices.insert(it, price);
+	prices.insert(val);
 }
 
 static bool is_number(const std::string& s)
@@ -109,14 +106,14 @@ void	BitcoinExchange::add_date(const std::string& line)
 
 static std::string format_number(int n, int len)
 {
-  std::ostringstream stream;
-  len--;
-  while (n < len * 10) {
-    stream << '0';
-    len--;
-  }
-  stream << n;
-  return stream.str();
+	std::ostringstream stream;
+	len--;
+	while (n < len * 10) {
+		stream << '0';
+		len--;
+	}
+	stream << n;
+	return stream.str();
 }
 
 void	BitcoinExchange::compute_price(const std::string& line) const
@@ -146,21 +143,26 @@ void	BitcoinExchange::compute_price(const std::string& line) const
 		std::cerr << "Error: not a positive number\n";
 		return;
 	} else if (amount > 1000) {
-    std::cerr << "Error: too large a number\n";
-    return;
-  }
-	for (size_t i=0; i < prices.size(); i++) {
-		if (date < prices[i].first) {
-			if (i == 0) {
-				std::cerr << "Error: too early date, no data\n";
-				return;
-			}
-			price = prices[i - 1].second;
-			break;
-		}
-		price = prices[i].second;
+    	std::cerr << "Error: too large a number\n";
+    	return;
 	}
-  std::cout << date.get_year() << "-" << format_number(date.get_month(), 2) << "-" << format_number(date.get_day(), 2) << " => " << amount << " = " << price * amount << std::endl;
+	try {
+		price = prices.at(date);
+	} catch (std::out_of_range& e) {
+		for (std::map<Date, double>::const_iterator it = prices.begin(); it != prices.end(); it++) {
+			if (date < it->first) {
+				if (it == prices.begin()) {
+					std::cerr << "Error: too early date, no data\n";
+					return;
+				}
+				it--;
+				price = it->second;
+				break;
+			}
+			price = it->second;
+		}
+	}
+	std::cout << date.get_year() << "-" << format_number(date.get_month(), 2) << "-" << format_number(date.get_day(), 2) << " => " << amount << " = " << price * amount << std::endl;
 }
 
 void	BitcoinExchange::compute_prices(const std::string& file) const

@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+#include <map>
 #include <fstream>
 #include <algorithm>
 
@@ -20,9 +21,9 @@ class	BitcoinExchange {
 		void	add_date(const std::string& line);
 
 	private:
-		Date									min_date;
-		Date									max_date;
-		std::vector<std::pair<Date, double> >	prices;
+		Date									  min_date;
+		Date									  max_date;
+		std::map<Date, double>	prices;
 
 		// ** private functions ***
 		void	parse_file(void);
